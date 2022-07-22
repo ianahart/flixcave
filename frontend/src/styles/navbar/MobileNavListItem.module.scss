@@ -1,0 +1,19 @@
+.container {
+  justify-self: center;
+
+  h4 {
+    font-family: 'Open sans', sans-serif;
+    color: var(--main-text);
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 0.5rem 0;
+    color: var(--main-text);
+  }
+}

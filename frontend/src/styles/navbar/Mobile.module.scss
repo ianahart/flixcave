@@ -1,0 +1,49 @@
+.container {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  z-index: 5;
+  background: #fff;
+  box-shadow: var(--box-shadow);
+  position: absolute;
+  top: 100px;
+  left: 25px;
+  width: 90%;
+  animation-name: slidedown;
+  transition: all 0.3s ease-out;
+  animation-duration: 0.3s;
+}
+
+@keyframes slidedown {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+  svg {
+    color: var(--main-text);
+    background: none;
+  }
+}
+
+.subMenus {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.mainNav {
+  list-style-type: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  li {
+    margin: 0.5rem 0;
+    color: var(--main-text);
+  }
+}

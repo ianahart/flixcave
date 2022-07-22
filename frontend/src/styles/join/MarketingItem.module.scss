@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem;
+  color: var(--main-text);
+  font-size: 1rem;
+  svg {
+    min-height: 18px;
+    min-width: 18px;
+    margin-right: 0.5rem;
+    color: green;
+  }
+}

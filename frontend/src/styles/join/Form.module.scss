@@ -1,0 +1,21 @@
+.container {
+  margin: 0.5rem;
+  padding: 0.25rem;
+  flex: 1;
+  background: #fff;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  min-height: 550px;
+
+  header {
+    color: var(--main-text);
+  }
+}
+
+.inputRow {
+  display: flex;
+}
+
+.inputColumn {
+  margin: 1rem;
+}

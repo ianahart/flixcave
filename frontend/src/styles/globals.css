@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Indie+Flower&family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Poppins&display=swap');
+:root {
+  --border-color: #dbdedb;
+  --main-orange: #fb8500;
+  --main-yellow: #ffb703;
+  --main-blue: #023047;
+  --main-teal: #219ebc;
+  --main-light-blue: #8ecae6;
+  --border-radius: 6px;
+  --main-text: #425466;
+  --box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
+    Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+  background: var(--main-blue);
+}
