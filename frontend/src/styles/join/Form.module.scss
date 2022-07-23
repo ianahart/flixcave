@@ -16,6 +16,72 @@
   display: flex;
 }
 
-.inputColumn {
+.inputRowItem {
+  width: 300px;
   margin: 1rem;
+}
+
+.inputColumn {
+  width: 600px;
+  margin: 1rem;
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  margin: 2rem;
+
+  p {
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--main-teal);
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  button {
+    font-size: 0.9rem;
+    width: 130px;
+    margin: 1rem;
+    height: 35px;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    background: var(--main-teal);
+    border-radius: var(--border-radius);
+    border: none;
+    color: #fff;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  img {
+    width: 120px;
+    height: 120px;
+  }
+  p {
+    color: var(--main-text);
+  }
+}
+
+@media (max-width: 900px) {
+  .inputRow {
+    flex-direction: column;
+  }
+  .inputRowItem {
+    width: 90%;
+  }
+
+  .inputColumn {
+    width: 90%;
+  }
 }

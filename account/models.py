@@ -3,7 +3,7 @@ import logging
 from typing import Union
 from core import settings
 from django.core.mail import EmailMessage
-from rest_framework_simplejwt.exceptions import TokenError
+from rest_framework_simplejwt.exceptions import TokenBackendError, TokenError
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.template.loader import render_to_string
 from django.contrib.auth import hashers
@@ -20,16 +20,46 @@ logger = logging.getLogger('django')
 
 class CustomUserManager(BaseUserManager):
 
+    def verify_account(self, data: dict[str, str]):
+        decoded_token = None
+        try:
+            decoded_token = TokenBackend(
+                algorithm='HS256'
+            ).decode(data['token'], verify=False)
+        except TokenBackendError:
+            logger.error('Invalid or malformed token.')
+        if decoded_token is not None:
+            user = CustomUser.objects.get(pk=decoded_token['user_id'])
+            user.is_active = True
+            user.save()
+
+    def send_verification_email(self, token: str, user: 'CustomUser'):
+        ctx = {'token': token, 'email': user.email}
+        message = render_to_string('verification-email.html', ctx)
+
+        mail = EmailMessage(
+            subject=user.email,
+            body=message,
+            from_email=settings.EMAIL_SENDER,
+            to=[user.email]
+        )
+
+        mail.content_subtype = 'html'
+        mail.send()
+
     def create(self, email: str, password: str, **extra_fields):
         """
         Create and save a User with the given email and password.
         """
+        extra_fields = {key: val for key, val in extra_fields.items() if key !=
+                        'confirm_password'}
         if not email:
             raise ValueError(_('The Email must be set'))
         email = self.normalize_email(email)
         user = self.model(email=email, password=password, **extra_fields)
         user.set_password(password)
         user.save()
+        user.refresh_from_db()
         return user
 
     def create_superuser(self, email: str, password: str, **extra_fields):
@@ -50,9 +80,6 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractUser, PermissionsMixin):
     username = None
     logged_in = models.BooleanField(default=False)
-    avatar_file = models.TextField(max_length=500, blank=True, null=True)
-    avatar_url = models.URLField(max_length=500, blank=True, null=True)
-    password_strength = models.CharField(max_length=50, blank=True, null=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
     name = models.CharField(unique=True, max_length=200, blank=True, null=True)

@@ -1,0 +1,48 @@
+.container {
+  width: 100%;
+  p {
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin: 0.1rem;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    color: var(--label-color);
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    height: 35px;
+    border-radius: var(--border-radius);
+  }
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.passwordIconContainer {
+  position: absolute;
+  top: 5px;
+  right: 2px;
+
+  svg {
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--label-color);
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 100%;
+  }
+}

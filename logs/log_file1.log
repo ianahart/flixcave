@@ -1,0 +1,359 @@
+ERROR 2022-07-23 19:12:25,124 241 log.py log 34020 123145567297536 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 24, in post
+    CustomUser.objects.create(
+TypeError: CustomUserManager.create() takes 3 positional arguments but 4 were given
+ERROR 2022-07-23 19:12:25,127 187 basehttp.py basehttp 34020 123145567297536 "POST /api/v1/auth/register/ HTTP/1.1" 500 92456
+ERROR 2022-07-23 19:32:27,723 241 log.py log 34578 123145567838208 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 23, in post
+    CustomUser.objects.create(data['email'], data['password'], **data)
+TypeError: CustomUserManager.create() got multiple values for argument 'email'
+ERROR 2022-07-23 19:32:27,730 187 basehttp.py basehttp 34578 123145567838208 "POST /api/v1/auth/register/ HTTP/1.1" 500 92566
+ERROR 2022-07-23 19:36:49,830 241 log.py log 34613 123145340964864 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 23, in post
+    CustomUser.objects.create(
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 31, in create
+    user = self.model(email=email, password=password, **extra_fields)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/base.py", line 559, in __init__
+    raise TypeError(
+TypeError: CustomUser() got an unexpected keyword argument 'confirm_password'
+ERROR 2022-07-23 19:36:49,831 187 basehttp.py basehttp 34613 123145340964864 "POST /api/v1/auth/register/ HTTP/1.1" 500 102814
+ERROR 2022-07-23 19:37:52,107 241 log.py log 34678 123145515737088 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 23, in post
+    CustomUser.objects.create(
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 31, in create
+    user = self.model(email=email, password=password, **extra_fields)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/base.py", line 559, in __init__
+    raise TypeError(
+TypeError: CustomUser() got an unexpected keyword argument 'confirm_password'
+ERROR 2022-07-23 19:37:52,109 187 basehttp.py basehttp 34678 123145515737088 "POST /api/v1/auth/register/ HTTP/1.1" 500 102842
+ERROR 2022-07-23 19:39:40,647 241 log.py log 34742 123145445203968 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 23, in post
+    CustomUser.objects.create(
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 28, in create
+    extra_fields = {key: val for key,
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 28, in <dictcomp>
+    extra_fields = {key: val for key,
+ValueError: too many values to unpack (expected 2)
+ERROR 2022-07-23 19:39:40,648 187 basehttp.py basehttp 34742 123145445203968 "POST /api/v1/auth/register/ HTTP/1.1" 500 99895
+ERROR 2022-07-23 19:39:40,955 241 log.py log 34742 123145445203968 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 23, in post
+    CustomUser.objects.create(
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 28, in create
+    extra_fields = {key: val for key,
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 28, in <dictcomp>
+    extra_fields = {key: val for key,
+ValueError: too many values to unpack (expected 2)
+ERROR 2022-07-23 19:39:40,956 187 basehttp.py basehttp 34742 123145445203968 "POST /api/v1/auth/register/ HTTP/1.1" 500 99895
+ERROR 2022-07-23 19:50:34,866 241 log.py log 34959 123145511714816 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 23, in post
+    CustomUser.objects.create(
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 28, in create
+    test = {key: val for key, val in extra_fields if key == 'confirm_password'}
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 28, in <dictcomp>
+    test = {key: val for key, val in extra_fields if key == 'confirm_password'}
+ValueError: too many values to unpack (expected 2)
+ERROR 2022-07-23 19:50:34,888 187 basehttp.py basehttp 34959 123145511714816 "POST /api/v1/auth/register/ HTTP/1.1" 500 100311
+ERROR 2022-07-23 19:52:27,938 241 log.py log 34980 123145551822848 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 23, in post
+    CustomUser.objects.create(
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 28, in create
+    test = {key: val for key, val in extra_fields}
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 28, in <dictcomp>
+    test = {key: val for key, val in extra_fields}
+ValueError: too many values to unpack (expected 2)
+ERROR 2022-07-23 19:52:27,939 187 basehttp.py basehttp 34980 123145551822848 "POST /api/v1/auth/register/ HTTP/1.1" 500 100151
+ERROR 2022-07-23 21:58:38,781 241 log.py log 36422 123145565327360 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "verification_token_verificationtoken" does not exist
+LINE 1: INSERT INTO "verification_token_verificationtoken" ("created...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 27, in post
+    token = VerificationToken.objects.create(user)
+  File "/Users/owner/Desktop/flixcave/verification_token/models.py", line 16, in create
+    verification_token.save()
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "verification_token_verificationtoken" does not exist
+LINE 1: INSERT INTO "verification_token_verificationtoken" ("created...
+                    ^
+
+ERROR 2022-07-23 21:58:38,785 187 basehttp.py basehttp 36422 123145565327360 "POST /api/v1/auth/register/ HTTP/1.1" 500 169984
+ERROR 2022-07-23 22:04:44,306 241 log.py log 36654 123145432305664 Internal Server Error: /api/v1/auth/register/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 29, in post
+    CustomUser.verfication_email(token=token, user=user)
+AttributeError: type object 'CustomUser' has no attribute 'verfication_email'
+ERROR 2022-07-23 22:04:44,307 187 basehttp.py basehttp 36654 123145432305664 "POST /api/v1/auth/register/ HTTP/1.1" 500 93384
+ERROR 2022-07-23 22:55:30,927 241 log.py log 37882 123145341218816 Internal Server Error: /api/v1/auth/verify/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 27, in post
+    CustomUser.objects.verify_account(serializer.validated_data)
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 28, in verify_account
+    print(decoded_token['uid'])
+KeyError: 'uid'
+ERROR 2022-07-23 22:55:30,930 187 basehttp.py basehttp 37882 123145341218816 "POST /api/v1/auth/verify/ HTTP/1.1" 500 95854
+ERROR 2022-07-23 22:56:34,616 241 log.py log 37911 123145383260160 Internal Server Error: /api/v1/auth/verify/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/jwt/api_jws.py", line 220, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework_simplejwt/backends.py", line 105, in decode
+    return jwt.decode(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/jwt/api_jwt.py", line 129, in decode
+    decoded = self.decode_complete(jwt, key, algorithms, options, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/jwt/api_jwt.py", line 100, in decode_complete
+    decoded = api_jws.decode_complete(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/jwt/api_jws.py", line 171, in decode_complete
+    payload, signing_input, header, signature = self._load(jwt)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/jwt/api_jws.py", line 223, in _load
+    raise DecodeError("Not enough segments") from err
+jwt.exceptions.DecodeError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 27, in post
+    CustomUser.objects.verify_account(serializer.validated_data)
+  File "/Users/owner/Desktop/flixcave/account/models.py", line 24, in verify_account
+    decoded_token = TokenBackend(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework_simplejwt/backends.py", line 120, in decode
+    raise TokenBackendError(_("Token is invalid or expired"))
+rest_framework_simplejwt.exceptions.TokenBackendError: Token is invalid or expired
+ERROR 2022-07-23 22:56:34,619 187 basehttp.py basehttp 37911 123145383260160 "POST /api/v1/auth/verify/ HTTP/1.1" 500 125106
+ERROR 2022-07-23 22:58:51,827 30 models.py models 37955 123145443766272 Invalid or malformed token.
+ERROR 2022-07-23 23:02:51,082 30 models.py models 38062 123145600970752 Invalid or malformed token.

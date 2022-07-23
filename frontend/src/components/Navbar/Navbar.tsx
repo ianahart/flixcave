@@ -1,5 +1,5 @@
 import { AiOutlineMenu } from 'react-icons/ai';
-import { MouseEvent, useEffect, useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import MainNav from './MainNav';
 import MovieNav from './MovieNav';
 import Mobile from './Mobile';
