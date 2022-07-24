@@ -5,3 +5,8 @@ export const joinState = {
   password: { name: 'password', value: '', error: '', type: 'password' },
   confirm_password: { name: 'confirm_password', value: '', error: '', type: 'password' },
 };
+
+export const loginState = {
+  email: { name: 'email', value: '', error: '', type: 'text' },
+  password: { name: 'password', value: '', error: '', type: 'password' },
+};

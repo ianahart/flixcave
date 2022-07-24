@@ -1,10 +1,23 @@
 from django.db import models
 from django.utils import timezone
+from rest_framework_simplejwt.backends import TokenBackend
 from rest_framework_simplejwt.tokens import RefreshToken
 from account.models import CustomUser
 
 
 class VerificationTokenManager(models.Manager):
+
+    def delete_verify_tokens(self, data: dict[str, str]):
+        decoded_token = TokenBackend(
+            algorithm='HS256'
+        ).decode(data['token'], verify=False)
+
+        tokens = VerificationToken.objects.all().filter(
+            user_id=decoded_token['user_id'])
+
+        for token in tokens:
+            token.delete()
+
     def create(self, user: 'CustomUser') -> str:
         token = str(RefreshToken.for_user(user))
         instance = self.model(

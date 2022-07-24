@@ -20,6 +20,7 @@ class CustomUserAdmin(BaseUserAdmin):
             {
                 'fields': (
                     'email',
+                    'logged_in',
                     'date_joined',
                     'first_name',
                     'last_name',

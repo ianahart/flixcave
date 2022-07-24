@@ -1,0 +1,90 @@
+.container {
+  background-image: url('../../images/login.svg');
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.formContainer {
+  display: flex;
+  min-height: 60vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  background: #fff;
+  width: 450px;
+  min-height: 500px;
+  border-radius: var(--border-radius);
+
+  header {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    background: var(--main-blue);
+    margin: 0;
+    text-align: center;
+    padding: 1rem;
+  }
+  h1 {
+    margin: 0;
+    color: #fff;
+  }
+}
+
+.mainError {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 99, 71, 0.5);
+  p {
+    color: var(--main-text);
+    text-align: center;
+  }
+}
+
+.verificationBtnContainer {
+  margin: 2rem auto 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--main-blue);
+  width: 50%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  svg {
+    color: #fff;
+    font-size: 24px;
+  }
+  button {
+    background: var(--main-blue);
+    color: #fff;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.column {
+  margin: 3rem 1rem 1.5rem 1rem;
+}
+
+.btnContainer {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  button {
+    width: 90%;
+    height: 35px;
+    border: none;
+    border-radius: var(--border-radius);
+    background: var(--main-teal);
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.1rem;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

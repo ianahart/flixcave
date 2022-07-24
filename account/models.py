@@ -47,6 +47,43 @@ class CustomUserManager(BaseUserManager):
         mail.content_subtype = 'html'
         mail.send()
 
+    def login_user(self, data: dict[str, str]):
+        email, password = data.values()
+
+        user = CustomUser.objects.all().filter(email=email).first()
+        if user is None:
+            return {'type': 'error',
+                    'msg': 'A user with this email does not exist.',
+                    'status_code': '404',
+                    }
+
+        if not hashers.check_password(password, user.password):
+            return {'type': 'error',
+                    'msg': 'Invalid credentials',
+                    'status_code': '401',
+                    }
+
+        if hashers.check_password(password, user.password) and not user.is_active:
+            return {'type': 'error',
+                    'msg': 'Please verify your account by clicking the link in the verification email we sent you.',
+                    'status_code': '401',
+                    }
+
+        user.logged_in = True
+        user.save()
+        user.refresh_from_db()
+
+        refresh_token = RefreshToken.for_user(user)
+        access_token = refresh_token.access_token
+        access_token.set_exp(lifetime=timedelta(days=3))
+
+        tokens = {
+            'access_token': str(access_token),
+            'refresh_token': str(refresh_token)
+        }
+
+        return {'type': 'ok', 'tokens': tokens, 'user': user}
+
     def create(self, email: str, password: str, **extra_fields):
         """
         Create and save a User with the given email and password.
@@ -102,3 +139,7 @@ class CustomUser(AbstractUser, PermissionsMixin):
 
     def __str__(self):
         return f"{self.email}"
+
+    @property
+    def initials(self):
+        return str(self.first_name)[0:1] + str(self.last_name)[0:1]

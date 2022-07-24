@@ -3,6 +3,14 @@ from rest_framework import serializers
 from account.models import CustomUser
 
 
+class LoginSerializer(serializers.Serializer):
+    email = serializers.CharField()
+    password = serializers.CharField()
+
+    class Meta:
+        fields = ('email', 'password', )
+
+
 class RegisterSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField()
 
