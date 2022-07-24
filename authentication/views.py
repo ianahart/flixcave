@@ -31,7 +31,6 @@ class ResendVerifyAPIView(APIView):
                 'message': 'success'
             }, status=status.HTTP_200_OK)
         except BadRequest as e:
-            print(e)
             return Response({
                 'errors': {}
             }, status=status.HTTP_400_BAD_REQUEST)
@@ -114,6 +113,5 @@ class TokenObtainPairView(APIView):
                 'user': user_serializer.data,
             }, status=status.HTTP_200_OK)
         except (ParseError, NotFound, AuthenticationFailed, ) as e:
-            print(e.status_code, 'asdf')
             return Response({
                 'errors': str(e)}, status=e.status_code)

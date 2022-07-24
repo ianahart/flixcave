@@ -1,4 +1,5 @@
 import { Axios, AxiosError } from 'axios';
+import { AiOutlineMail } from 'react-icons/ai';
 import { FormEvent, useState } from 'react';
 import loginStyles from '../styles/login/Login.module.scss';
 import { useEffectOnce } from '../hooks/UseEffectOnce';
@@ -6,11 +7,14 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { http } from '../helpers/utils';
 import { loginState } from '../data/initialState';
 import FormInput from '../components/Form/FormInput';
-import { ILoginForm } from '../interfaces';
-import { AiOutlineMail } from 'react-icons/ai';
+import { ILoginForm, ILoginResponse } from '../interfaces';
+import { useAppDispatch } from '../app/hooks';
+import { saveUser } from '../features/userSlice';
+import { saveTokens } from '../features/tokenSlice';
 
 export default function Login() {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
   const [form, setForm] = useState<ILoginForm>(loginState);
   const [error, setError] = useState('');
@@ -51,11 +55,12 @@ export default function Login() {
     try {
       e.preventDefault();
       setError('');
-      const response = await http.post('/auth/login/', {
+      const response = await http.post<ILoginResponse>('/auth/login/', {
         email: form.email.value,
         password: form.password.value,
       });
-      console.log(response);
+      dispatch(saveUser(response.data.user));
+      dispatch(saveTokens(response.data.tokens));
       navigate('/login');
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
