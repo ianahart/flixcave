@@ -61,10 +61,9 @@ export default function Login() {
       });
       dispatch(saveUser(response.data.user));
       dispatch(saveTokens(response.data.tokens));
-      navigate('/login');
+      navigate('/');
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
-        console.log(err.response);
         if (err.response.status !== 400) {
           setError(err.response.data.errors);
           return;

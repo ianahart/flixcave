@@ -18,6 +18,7 @@ export const tokenSlice = createSlice({
   reducers: {
     saveTokens: (state, action: PayloadAction<ITokens>) => {
       state.value = action.payload;
+      localStorage.setItem('tokens', JSON.stringify(state.value));
     },
   },
 });

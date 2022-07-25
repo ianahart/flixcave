@@ -20,6 +20,22 @@ logger = logging.getLogger('django')
 
 class CustomUserManager(BaseUserManager):
 
+    def refresh_user(self, token: str) -> Union['CustomUser', None]:
+
+        decoded_token = None
+        try:
+            decoded_token = TokenBackend(
+                algorithm='HS256'
+            ).decode(
+                token.split('Bearer ')[1], verify=False
+            )
+        except TokenBackendError:
+            logger.error('Unable to decode token to refresh user.')
+        if decoded_token is not None:
+            user = CustomUser.objects.get(pk=decoded_token['user_id'])
+
+            return user
+
     def verify_account(self, data: dict[str, str]):
         decoded_token = None
         try:
