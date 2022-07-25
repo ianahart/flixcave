@@ -7,11 +7,33 @@ from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from authentication.serializers import LoginSerializer, RegisterSerializer
+from authentication.serializers import LoginSerializer, LogoutSerializer, RegisterSerializer
 from account.models import CustomUser
 from verification_token.models import VerificationToken
 from verification_token.serializers import VerificationTokenSerializer
 from account.serializers import UserSerializer
+
+
+class LogoutAPIView(APIView):
+    permission_classes = [IsAuthenticated, ]
+
+    def post(self, request):
+        try:
+
+            serializer = LogoutSerializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+
+            CustomUser.objects.logout_user(serializer.validated_data)
+
+
+            return Response({
+                'message': 'success',
+            }, status=status.HTTP_200_OK)
+
+        except ParseError as e:
+            return Response({
+                'errors': {}
+            }, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ResendVerifyAPIView(APIView):

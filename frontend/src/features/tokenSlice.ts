@@ -20,9 +20,16 @@ export const tokenSlice = createSlice({
       state.value = action.payload;
       localStorage.setItem('tokens', JSON.stringify(state.value));
     },
+    clearTokens: (state) => {
+      localStorage.removeItem('tokens');
+      state.value = initialState.value;
+    },
+    updateAccessToken: (state, action: PayloadAction<string>) => {
+      state.value.access_token = action.payload;
+    },
   },
 });
 
-export const { saveTokens } = tokenSlice.actions;
+export const { saveTokens, clearTokens, updateAccessToken } = tokenSlice.actions;
 
 export default tokenSlice.reducer;

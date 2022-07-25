@@ -3,6 +3,15 @@ from rest_framework import serializers
 from account.models import CustomUser
 
 
+class LogoutSerializer(serializers.ModelSerializer):
+    refresh_token = serializers.CharField()
+    pk = serializers.IntegerField()
+
+    class Meta:
+        model = CustomUser
+        fields = ('pk', 'refresh_token', )
+
+
 class LoginSerializer(serializers.Serializer):
     email = serializers.CharField()
     password = serializers.CharField()

@@ -728,3 +728,59 @@ Traceback (most recent call last):
     print(self.first_name.split('')[0:1])
 ValueError: empty separator
 ERROR 2022-07-24 17:34:26,450 187 basehttp.py basehttp 43831 123145419075584 "POST /api/v1/auth/login/ HTTP/1.1" 500 116457
+ERROR 2022-07-25 17:21:08,311 241 log.py log 53554 123145402318848 Internal Server Error: /api/v1/auth/logout/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/authentication/views.py", line 24, in post
+    serializer.is_valid(raise_exception=True)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 426, in run_validation
+    value = self.to_internal_value(data)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 479, in to_internal_value
+    for field in fields:
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 362, in _writable_fields
+    for field in self.fields.values():
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `user` is not valid for model `CustomUser`.
+ERROR 2022-07-25 17:21:08,332 187 basehttp.py basehttp 53554 123145402318848 "POST /api/v1/auth/logout/ HTTP/1.1" 500 139356
+ERROR 2022-07-25 17:26:56,484 33 models.py models 53689 123145408925696 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:38,276 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:40,709 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:48,250 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:48,675 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:48,894 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:49,075 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:49,240 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:49,442 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:49,610 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:49,808 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:50,008 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:33:50,211 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:34:12,436 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:34:13,408 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-07-25 17:36:36,490 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.

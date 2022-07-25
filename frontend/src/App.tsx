@@ -12,12 +12,14 @@ import { http, retreiveTokens } from './helpers/utils';
 import { saveUser } from './features/userSlice';
 import { useEffectOnce } from './hooks/UseEffectOnce';
 import { useAppDispatch } from './app/hooks';
+import RequireGuest from './components/Mixed/RequireGuest';
+import WithAxios from './helpers/WithAxios';
+
 function App() {
   const dispatch = useAppDispatch();
   const refreshUser = useCallback(async () => {
     try {
       const tokens = retreiveTokens();
-      console.log(tokens);
       const headers = { headers: { Authorization: `Bearer ${tokens.access_token}` } };
       const response = await http.get('/account/refresh/', headers);
       dispatch(saveUser(response.data.user));
@@ -26,7 +28,7 @@ function App() {
         return;
       }
     }
-  }, []);
+  }, [dispatch]);
 
   useEffectOnce(() => {
     refreshUser();
@@ -38,11 +40,27 @@ function App() {
         <Navbar />
         <div className="site">
           <div className="site-content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/join" element={<Join />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
+            <WithAxios>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route
+                  path="/join"
+                  element={
+                    <RequireGuest>
+                      <Join />
+                    </RequireGuest>
+                  }
+                />
+                <Route
+                  path="/login"
+                  element={
+                    <RequireGuest>
+                      <Login />
+                    </RequireGuest>
+                  }
+                />
+              </Routes>
+            </WithAxios>
           </div>
           <Footer />
         </div>

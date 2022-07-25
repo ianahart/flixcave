@@ -20,6 +20,19 @@ logger = logging.getLogger('django')
 
 class CustomUserManager(BaseUserManager):
 
+    def logout_user(self, data: dict[str, Union[str, int]]):
+        pk, refresh_token = data.values()
+
+        user = CustomUser.objects.get(pk=pk)
+        user.logged_in = False
+        user.save()
+
+        try:
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+        except TokenError:
+            logger.error('Trouble blacklisting token from logging out.')
+
     def refresh_user(self, token: str) -> Union['CustomUser', None]:
 
         decoded_token = None

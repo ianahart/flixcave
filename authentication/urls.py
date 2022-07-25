@@ -7,4 +7,5 @@ urlpatterns = [
     path('auth/register/', views.RegisterAPIView.as_view()),
     path('auth/refresh/', TokenRefreshView.as_view()),
     path('auth/login/', views.TokenObtainPairView.as_view()),
+    path('auth/logout/', views.LogoutAPIView.as_view()),
 ]
