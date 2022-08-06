@@ -1,0 +1,77 @@
+.hero {
+  background-image: url('../../images/hero_wallpaper.jpeg');
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  header {
+    color: #fff;
+    padding: 2rem;
+    p {
+      font-size: 1.5rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+  }
+}
+
+.heroContent {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.inputContainer {
+  margin: 2rem;
+  width: 900px;
+  position: relative;
+
+  input {
+    width: 100%;
+    color: var(--main-text);
+    padding: 0.2rem 1rem;
+    border: none;
+    height: 45px;
+    font-size: 18px;
+    border-radius: 20px;
+  }
+}
+
+.searchBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px;
+  background: rgb(33, 158, 188);
+  background: linear-gradient(
+    90deg,
+    rgba(33, 158, 188, 1) 29%,
+    rgba(142, 202, 230, 1) 100%
+  );
+  &:hover {
+    color: var(--main-text);
+  }
+}
+
+@media (max-width: 930px) {
+  .inputContainer {
+    width: 95%;
+    margin: 0 auto;
+  }
+}

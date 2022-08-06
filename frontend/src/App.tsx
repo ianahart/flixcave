@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import Join from './pages/join';
 import Login from './pages/login';
+import Search from './pages/search';
 import { AxiosError } from 'axios';
 import { http, retreiveTokens } from './helpers/utils';
 import { saveUser } from './features/userSlice';
@@ -59,6 +60,7 @@ function App() {
                     </RequireGuest>
                   }
                 />
+                <Route path="/search" element={<Search />}></Route>
               </Routes>
             </WithAxios>
           </div>
