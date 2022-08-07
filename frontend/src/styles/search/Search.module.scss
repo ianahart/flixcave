@@ -1,0 +1,22 @@
+.container {
+  min-height: 100vh;
+}
+
+.contentContainer {
+  margin: 3rem auto;
+  display: flex;
+  width: 1280px;
+}
+
+@media (max-width: 1281px) {
+  .contentContainer {
+    width: 95%;
+    margin: 3rem auto 3rem auto;
+  }
+}
+
+@media (max-width: 860px) {
+  .contentContainer {
+    flex-direction: column;
+  }
+}

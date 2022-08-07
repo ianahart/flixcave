@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'account',
     'authentication',
     'verification_token',
+    'movie',
 ]
 
 
@@ -60,6 +61,9 @@ AUTH_USER_MODEL = 'account.CustomUser'
 AUTHENTICATION_BACKENDS = (
     'account.backends.EmailBackend',
 )
+
+TMDB_API_KEY = env('TMDB_API_KEY')
+TMDB_BASE_URL = env('TMDB_BASE_URL')
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=0),

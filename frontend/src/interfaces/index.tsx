@@ -3,6 +3,30 @@ export interface ISubNavListItem {
   text: string;
 }
 
+export interface ISearchTotal {
+  person: number;
+  collection: number;
+  movie: number;
+  tv: number;
+}
+
+export interface IMovieResultInterface {
+  adult?: boolean;
+  backdrop_path?: string;
+  genre_ids?: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  post_path: string;
+  releast_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+
 export interface IJoinForm {
   first_name: { name: string; value: string; error: string; type: string };
   last_name: { name: string; value: string; error: string; type: string };

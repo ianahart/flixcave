@@ -784,3 +784,150 @@ ERROR 2022-07-25 17:33:50,211 34 models.py models 53703 123145557434368 Trouble 
 ERROR 2022-07-25 17:34:12,436 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
 ERROR 2022-07-25 17:34:13,408 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
 ERROR 2022-07-25 17:36:36,490 34 models.py models 53703 123145557434368 Trouble blacklisting token from logging out.
+ERROR 2022-08-06 16:12:44,259 241 log.py log 7288 123145460826112 Internal Server Error: /api/v1/search/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/utils/datastructures.py", line 84, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 16, in get
+    page = int(request.query_params['page'])
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/utils/datastructures.py", line 86, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+ERROR 2022-08-06 16:12:44,302 187 basehttp.py basehttp 7288 123145460826112 "GET /api/v1/search/?q=james%20bond HTTP/1.1" 500 99745
+ERROR 2022-08-06 17:54:46,067 241 log.py log 9005 123145527480320 Internal Server Error: /api/v1/search/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 28, in get
+    'page': results['page']
+KeyError: 'page'
+ERROR 2022-08-06 17:54:46,085 187 basehttp.py basehttp 9005 123145527480320 "GET /api/v1/search/?query=james%20bond&page=0 HTTP/1.1" 500 92451
+ERROR 2022-08-06 18:07:41,775 21 services.py services 9329 123145359785984 Unable to fetch resources from TMDB.
+ERROR 2022-08-06 18:13:08,305 241 log.py log 9329 123145359785984 Internal Server Error: /api/v1/search/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/utils/datastructures.py", line 84, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 17, in get
+    page = int(request.query_params['page'])
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/utils/datastructures.py", line 86, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+ERROR 2022-08-06 18:13:08,380 187 basehttp.py basehttp 9329 123145359785984 "GET /api/v1/search/?query=james%20bond HTTP/1.1" 500 99756
+ERROR 2022-08-06 18:14:42,142 241 log.py log 9462 123145405001728 Internal Server Error: /api/v1/search/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/utils/datastructures.py", line 84, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 17, in get
+    page = int(request.query_params['page'])
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/utils/datastructures.py", line 86, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+ERROR 2022-08-06 18:14:42,251 187 basehttp.py basehttp 9462 123145405001728 "GET /api/v1/search/?query=james%20bond HTTP/1.1" 500 99756
+ERROR 2022-08-06 18:15:20,312 241 log.py log 9462 123145405001728 Internal Server Error: /api/v1/search/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/utils/datastructures.py", line 84, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'page'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 17, in get
+    page = int(request.query_params['page'])
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/utils/datastructures.py", line 86, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'page'
+ERROR 2022-08-06 18:15:20,329 187 basehttp.py basehttp 9462 123145405001728 "GET /api/v1/search/?query=james%20bondpage=1 HTTP/1.1" 500 99846
