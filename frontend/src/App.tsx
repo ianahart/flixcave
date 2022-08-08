@@ -15,6 +15,10 @@ import { useEffectOnce } from './hooks/UseEffectOnce';
 import { useAppDispatch } from './app/hooks';
 import RequireGuest from './components/Mixed/RequireGuest';
 import WithAxios from './helpers/WithAxios';
+import MovieDetails from './pages/Details/MovieDetails';
+import CollectionDetails from './pages/Details/CollectionDetails';
+import TvDetails from './pages/Details/TvDetails';
+import PersonDetails from './pages/Details/PersonDetails';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -61,6 +65,10 @@ function App() {
                   }
                 />
                 <Route path="/search" element={<Search />}></Route>
+                <Route path="/movies/:id" element={<MovieDetails />}></Route>
+                <Route path="/collections/:id" element={<CollectionDetails />}></Route>
+                <Route path="/tv-shows/:id" element={<TvDetails />}></Route>
+                <Route path="/people/:id" element={<PersonDetails />}></Route>
               </Routes>
             </WithAxios>
           </div>

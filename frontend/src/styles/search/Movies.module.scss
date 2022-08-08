@@ -1,0 +1,33 @@
+.movieContainer {
+  display: flex;
+  border: 1px solid #e1e6e1;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: 2rem;
+
+  img {
+    width: 120px;
+    height: 100%;
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    margin-right: 1rem;
+  }
+}
+
+.header {
+  h2 {
+    color: var(--main-text);
+    margin: 1rem 0 0.1rem 0;
+    font-size: 1.1rem;
+  }
+
+  p {
+    color: #acaeac;
+    margin: 0 0 1rem 0;
+  }
+}
+
+.overview {
+  color: var(--main-text);
+  padding: 0.25rem;
+}

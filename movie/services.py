@@ -5,7 +5,22 @@ logger = logging.getLogger('django')
 
 
 class TMDB():
-    def multi_search(self, query: str, page: int):
+
+    def search(self, query: str, param: str, page: int, direction='next'):
+        try:
+            response = requests.get(
+                f'{settings.TMDB_BASE_URL}/search/{param}?language=en-US&query={query}&api_key={settings.TMDB_API_KEY}&page={page}')
+
+            return {
+                'results': response.json(),
+                'type': param,
+                'page': page,
+            }
+
+        except Exception:
+            logger.error('Unable to fetch resources with parameter from TMDB.')
+
+    def mounted_search(self, query: str, page: int):
         try:
             response = requests.get(
                 f'{settings.TMDB_BASE_URL}/search/movie?language=en-US&query={query}&api_key={settings.TMDB_API_KEY}&page={page}')
@@ -16,7 +31,11 @@ class TMDB():
             for type in types:
                 totals[type] = self.get_type_total(type, query, page)
 
-            return {'results': response.json(), 'totals': totals}
+            return {
+                'results': response.json(),
+                'totals': totals,
+                'page': page,
+            }
         except Exception:
             logger.error('Unable to fetch resources from TMDB.')
 

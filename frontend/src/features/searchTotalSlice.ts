@@ -20,6 +20,9 @@ export const searchTotalSlice = createSlice({
     saveSearchTotal: (state, action: PayloadAction<ISearchTotal>) => {
       state.value = action.payload;
     },
+    clearSearchTotal: (state) => {
+      state.value = initialState.value;
+    },
   },
 });
 

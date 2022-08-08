@@ -1,0 +1,33 @@
+.person {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e1e6e1;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: 2rem;
+  height: 120px;
+}
+
+.profilePicture {
+  margin-right: 1rem;
+  img {
+    width: 120px;
+    height: 120px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+}
+
+.details {
+  h2 {
+    font-size: 1.1rem;
+    color: var(--main-text);
+  }
+}
+
+.knownFor {
+  display: flex;
+  p {
+    margin: 0.25rem;
+  }
+}

@@ -931,3 +931,648 @@ Traceback (most recent call last):
     raise MultiValueDictKeyError(key)
 django.utils.datastructures.MultiValueDictKeyError: 'page'
 ERROR 2022-08-06 18:15:20,329 187 basehttp.py basehttp 9462 123145405001728 "GET /api/v1/search/?query=james%20bondpage=1 HTTP/1.1" 500 99846
+ERROR 2022-08-07 18:18:24,649 34 models.py models 22927 123145546338304 Trouble blacklisting token from logging out.
+ERROR 2022-08-07 19:00:29,907 40 services.py services 24741 123145528819712 Unable to fetch resources from TMDB.
+ERROR 2022-08-07 19:00:30,606 40 services.py services 24741 123145528819712 Unable to fetch resources from TMDB.
+ERROR 2022-08-07 19:00:49,851 40 services.py services 24741 123145528819712 Unable to fetch resources from TMDB.
+ERROR 2022-08-07 19:58:52,436 45 services.py services 26044 123145492795392 Unable to fetch resources from TMDB.
+ERROR 2022-08-07 19:58:54,018 45 services.py services 26044 123145492795392 Unable to fetch resources from TMDB.
+ERROR 2022-08-07 20:05:35,816 45 services.py services 26299 123145546305536 Unable to fetch resources from TMDB.
+ERROR 2022-08-07 20:08:30,471 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:08:30,518 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:08:32,874 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:08:32,876 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:12:44,231 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:12:44,234 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:13:03,376 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:13:03,378 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:14:29,207 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:14:29,209 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:15:01,544 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:15:01,545 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:16:34,548 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:16:34,549 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:20:54,464 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:20:54,529 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:24:42,379 241 log.py log 26369 123145516724224 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:24:42,383 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:24:42,538 187 basehttp.py basehttp 26369 123145516724224 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:24:42,538 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=prev HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:24:43,427 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:24:43,428 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:24:44,346 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:24:44,346 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:24:45,246 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:24:45,247 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=prev HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:24:45,854 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:24:45,855 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:24:46,528 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:24:46,529 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=prev HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:24:46,786 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:24:46,787 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=prev HTTP/1.1" 500 92884
+ERROR 2022-08-07 20:24:47,342 241 log.py log 26369 123145499398144 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-07 20:24:47,343 187 basehttp.py basehttp 26369 123145499398144 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:15,262 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:15,292 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=prev HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:15,339 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:15,341 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=prev HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:16,246 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:16,247 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=prev HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:16,878 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:16,879 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=prev HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:19,874 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:19,875 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:20,433 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:20,434 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:20,900 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:20,901 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:21,100 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:21,101 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:21,323 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:21,324 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:21,468 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:21,469 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:21,634 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:21,635 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-08 11:53:21,832 241 log.py log 28264 123145500606464 Internal Server Error: /api/v1/search/movie/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/movie/views.py", line 23, in get
+    page = int(request.query_params['page'])
+ValueError: invalid literal for int() with base 10: 'null'
+ERROR 2022-08-08 11:53:21,833 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884

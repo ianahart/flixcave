@@ -1,5 +1,6 @@
 import { AiOutlineMenu } from 'react-icons/ai';
 import { MouseEvent, useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import MainNav from './MainNav';
 import MovieNav from './MovieNav';
 import Mobile from './Mobile';
@@ -20,7 +21,9 @@ export default function Navbar() {
 
   return (
     <nav className={navBarStyles.navContainer}>
-      <img className="logo" width={70} height={70} src={logo} alt="logo" />
+      <RouterLink to="/">
+        <img className="logo" width={70} height={70} src={logo} alt="logo" />
+      </RouterLink>
       <MovieNav />
       <MainNav />
       <div onClick={handleOnClick} className={navBarStyles.hamburgerMenu}>
