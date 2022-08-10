@@ -3,6 +3,73 @@ export interface ISubNavListItem {
   text: string;
 }
 
+export interface IGenre {
+  id: number;
+  name: string;
+}
+
+export interface IProductionCompany {
+  id: number;
+  logo_path: string;
+  name: string;
+  origin_country: string;
+}
+
+export interface IPersonDetails {
+  birthday: string;
+  name: string;
+  biography: string;
+  place_of_birth: string;
+  profile_path: string;
+}
+
+export interface IPersonDetailsResponse {
+  message?: string;
+  person_details: IPersonDetails;
+}
+
+export interface ITvDetails {
+  backdrop_path: string;
+  first_air_date: string;
+  last_air_date: string;
+  original_name: string;
+  genres: IGenre[];
+  overview: string;
+  poster_path: string;
+  production_companies: IProductionCompany[];
+  tagline: string;
+  vote_average: number;
+  vote_percent: number;
+}
+
+export interface IMovieDetails {
+  backdrop_path: string;
+  budget: number;
+  genres: IGenre[] | [];
+  id: number;
+  original_title: string;
+  overview: string;
+  poster_path: string;
+  production_companies: IProductionCompany[];
+  revenue: number;
+  runtime: number;
+  status: string;
+  tagline: string;
+  vote_average: number;
+  vote_percent: number;
+  date: string;
+}
+
+export interface ITvDetailsResponse {
+  message?: string;
+  tv_details: ITvDetails;
+}
+
+export interface IMovieDetailsResponse {
+  message?: string;
+  movie_details: IMovieDetails;
+}
+
 export interface ISearchTotal {
   person: number;
   collection: number;

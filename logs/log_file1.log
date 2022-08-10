@@ -1576,3 +1576,6 @@ Traceback (most recent call last):
     page = int(request.query_params['page'])
 ValueError: invalid literal for int() with base 10: 'null'
 ERROR 2022-08-08 11:53:21,833 187 basehttp.py basehttp 28264 123145500606464 "GET /api/v1/search/movie/?page=null&query=james%20bond&direction=next HTTP/1.1" 500 92884
+ERROR 2022-08-09 15:08:38,555 30 services.py services 41684 123145583939584 Unable to fetch movie details from TMDB.
+ERROR 2022-08-09 20:03:58,673 30 services.py services 49056 123145378193408 Unable to fetch tv details from TMDB
+ERROR 2022-08-09 20:04:02,803 30 services.py services 49056 123145378193408 Unable to fetch tv details from TMDB

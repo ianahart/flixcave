@@ -21,7 +21,7 @@ const Search = () => {
     try {
       dispatch(saveSearchResults([]));
       dispatch(saveSearchType('movie'));
-      const response = await http.get<any>(`/search/?query=${q}&page=${page}`);
+      const response = await http.get<any>(`/search/tmdb/?query=${q}&page=${page}`);
       dispatch(saveSearchResults(response.data.results.results));
       dispatch(saveSearchTotal(response.data.totals));
       dispatch(saveSearchTotalPages(response.data.results.total_pages));

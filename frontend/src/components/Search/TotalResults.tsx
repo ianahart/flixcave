@@ -24,14 +24,14 @@ const TotalResults = () => {
       setInitialLoad(false);
       return;
     }
-  });
+  }, []);
 
   const handleSetActive = async (activeParameter: string) => {
     try {
       if (searchType === activeParameter) return;
       const page = activeParameter === 'movie' && initialLoad ? 2 : 1;
       const response = await http.get(
-        `/search/${activeParameter}/?page=${page}&query=${q}`
+        `/search/tmdb/${activeParameter}/?page=${page}&query=${q}`
       );
       dispatch(saveSearchResults(response.data.results.results));
       dispatch(saveSearchType(response.data.type));

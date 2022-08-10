@@ -1,0 +1,84 @@
+.container {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.backdrop {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  min-height: 450px;
+  background-repeat: no-repeat;
+  padding: 1rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.airDate {
+  font-size: 1rem;
+}
+
+.content {
+  padding: 0.25rem;
+  flex-grow: 2;
+}
+
+.header {
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1.5rem;
+  h2 {
+    margin: 0;
+  }
+  span {
+    color: #b3b8b3;
+  }
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+
+  p {
+    margin: 0 1rem;
+    color: #fff;
+  }
+}
+
+.actions {
+  border: 2px solid red;
+}
+
+.runtime {
+  color: #fff;
+}
+
+.overview {
+  margin-top: 4rem;
+  width: 650px;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.facts {
+  p {
+    color: var(--main-text);
+  }
+
+  span {
+    color: gray;
+  }
+}
+
+@media (max-width: 1000px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .overview {
+    width: 95%;
+  }
+}

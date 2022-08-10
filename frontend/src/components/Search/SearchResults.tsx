@@ -48,7 +48,7 @@ const SearchResults = () => {
       }
 
       const response = await http.get(
-        `/search/${searchType}/?page=${curPage}&query=${q}&direction=${direction}`
+        `/search/tmdb/${searchType}/?page=${curPage}&query=${q}&direction=${direction}`
       );
       dispatch(saveSearchResults(response.data.results.results));
       dispatch(saveSearchType(response.data.type));
