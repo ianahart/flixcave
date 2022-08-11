@@ -1,3 +1,4 @@
+from collections.abc import Sequence
 import logging
 from core import settings
 from movie.tmdb_fields import movie_fields, tv_fields, collection_fields, person_fields
@@ -89,14 +90,48 @@ class TMDB():
             response = requests.get(
                 f'{settings.TMDB_BASE_URL}/search/{param}?language=en-US&query={query}&api_key={settings.TMDB_API_KEY}&page={page}')
 
+            results = self.__organize_results(response.json())
+
             return {
-                'results': response.json(),
+                'results': results,
                 'type': param,
                 'page': page,
             }
 
-        except Exception:
+        except Exception as e:
+            print(e)
             logger.error('Unable to fetch resources with parameter from TMDB.')
+
+    def __shorten_overview(self, overview: str):
+        string, char_limit = '', 25
+
+        lst = overview.split(' ')
+
+        for index, word in enumerate(lst):
+            if index < char_limit:
+                if index + 1 == char_limit:
+                    string += ' ' + word + '...'
+                else:
+                    string += ' ' + word
+
+        return string
+
+    def __organize_results(self, response: dict):
+        results = []
+        page, data, total_pages, total_results = response.values()
+
+        for item in data:
+            if 'overview' in item:
+                item['overview'] = self.__shorten_overview(
+                    item['overview'])
+            results.append(item)
+
+        return {
+            'page': page,
+            'results': results,
+            'total_pages': total_pages,
+            'total_results': total_results
+        }
 
     def mounted_search(self, query: str, page: int):
         try:
@@ -109,8 +144,11 @@ class TMDB():
             for type in types:
                 totals[type] = self.get_type_total(type, query, page)
 
+            results = self.__organize_results(response.json())
+
+#
             return {
-                'results': response.json(),
+                'results': results,
                 'totals': totals,
                 'page': page,
             }
