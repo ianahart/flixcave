@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { AiOutlineUser, AiOutlineLogout } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
+import { AiOutlineUser, AiOutlineLogout, AiOutlineUnorderedList } from 'react-icons/ai';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { http, retreiveTokens } from '../../helpers/utils';
 import { clearUser } from '../../features/userSlice';
@@ -73,6 +73,12 @@ const UserMenu = () => {
               </div>
             </div>
           </div>
+
+          <div className={userMenuStyles.link}>
+            <AiOutlineUnorderedList />
+            <RouterLink to="/lists">Your Lists</RouterLink>
+          </div>
+
           <div className={userMenuStyles.link}>
             <AiOutlineLogout />
             <p onClick={logoutUser} role="button">

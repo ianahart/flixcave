@@ -23,6 +23,17 @@ export interface IPersonDetails {
   profile_path: string;
 }
 
+export interface IList {
+  user_id: number;
+  id: number;
+  name: string;
+}
+
+export interface IListsResponse {
+  message?: string;
+  lists: IList[];
+}
+
 export interface IPersonDetailsResponse {
   message?: string;
   person_details: IPersonDetails;
@@ -36,6 +47,19 @@ export interface IPopulateList {
 export interface IPopulateListResponse {
   message?: string;
   results: IPopulateList[];
+}
+
+export interface IListItem {
+  id: number;
+  backdrop_path: string;
+  title: string;
+}
+
+export interface IListResponse {
+  message?: string;
+  has_next: boolean;
+  page: number;
+  list_items: IListItem[];
 }
 
 export interface ITvDetails {

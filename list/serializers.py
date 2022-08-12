@@ -1,6 +1,18 @@
 from rest_framework import serializers
 
-from list.models import List
+from list.models import List, ListItem
+
+
+class ListItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ListItem
+        fields = ('id', 'title', 'backdrop_path', )
+
+
+class ListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = List
+        fields = ('id', 'name', 'user_id', )
 
 
 class PopulateSerializer(serializers.ModelSerializer):

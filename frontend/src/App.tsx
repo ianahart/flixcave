@@ -21,7 +21,7 @@ import CollectionDetails from './pages/Details/CollectionDetails';
 import TvDetails from './pages/Details/TvDetails';
 import PersonDetails from './pages/Details/PersonDetails';
 import Lists from './pages/Auth/Lists';
-
+import List from './pages/Auth/List';
 function App() {
   const dispatch = useAppDispatch();
   const refreshUser = useCallback(async () => {
@@ -72,6 +72,15 @@ function App() {
                   element={
                     <RequireAuth>
                       <Lists />
+                    </RequireAuth>
+                  }
+                />
+
+                <Route
+                  path="/lists/:id"
+                  element={
+                    <RequireAuth>
+                      <List />
                     </RequireAuth>
                   }
                 />

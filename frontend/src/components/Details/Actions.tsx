@@ -55,7 +55,7 @@ const Actions = ({ id, name, backdropPath }: IActionProps) => {
               handleModalOpen={handleModalOpen}
               handleAddToList={handleAddToList}
               listError={listError}
-                            name={name}
+              name={name}
             />
           </div>
         )}

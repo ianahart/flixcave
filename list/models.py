@@ -12,6 +12,20 @@ logger = logging.getLogger('django')
 
 class ListManager(models.Manager):
 
+    def get_list(self, id: int, page: int):
+        list = List.objects.get(pk=id)
+
+        p = Paginator(list.list_list_items.all(), 2)
+        next_page = int(page) + 1
+        cur_page = p.page(next_page)
+        list_items = cur_page.object_list
+
+        return {'page': next_page, 'has_next': cur_page.has_next(), 'list_items': list_items}
+
+    def all_lists(self, user_id: int):
+        lists = List.objects.all().order_by('name').filter(user_id=user_id)
+        return lists
+
     def populate(self, data: dict[str, str], user_id: int):
         exclude_lists = []
         name, title = data.values()
