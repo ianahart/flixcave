@@ -69,10 +69,6 @@
   }
 }
 
-.actions {
-  border: 2px solid red;
-}
-
 .productionCompaniesTitle {
   color: var(--main-text);
   margin-bottom: 0.1rem;
@@ -111,6 +107,8 @@
 .actions {
   margin-top: 3rem;
   padding: 0.25rem;
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 1000px) {

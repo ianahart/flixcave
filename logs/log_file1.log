@@ -1579,3 +1579,440 @@ ERROR 2022-08-08 11:53:21,833 187 basehttp.py basehttp 28264 123145500606464 "GE
 ERROR 2022-08-09 15:08:38,555 30 services.py services 41684 123145583939584 Unable to fetch movie details from TMDB.
 ERROR 2022-08-09 20:03:58,673 30 services.py services 49056 123145378193408 Unable to fetch tv details from TMDB
 ERROR 2022-08-09 20:04:02,803 30 services.py services 49056 123145378193408 Unable to fetch tv details from TMDB
+ERROR 2022-08-11 15:42:15,149 106 services.py services 55668 123145469427712 Unable to fetch resources with parameter from TMDB.
+ERROR 2022-08-11 15:42:16,626 106 services.py services 55668 123145469427712 Unable to fetch resources with parameter from TMDB.
+ERROR 2022-08-11 15:42:36,774 106 services.py services 55679 123145429139456 Unable to fetch resources with parameter from TMDB.
+ERROR 2022-08-11 15:48:12,458 104 services.py services 55795 123145450975232 Unable to fetch resources with parameter from TMDB.
+ERROR 2022-08-11 15:52:45,332 107 services.py services 55856 123145479856128 Unable to fetch resources with parameter from TMDB.
+ERROR 2022-08-11 15:54:09,643 106 services.py services 55904 123145508675584 Unable to fetch resources with parameter from TMDB.
+ERROR 2022-08-11 15:55:16,123 107 services.py services 55936 123145384759296 Unable to fetch resources with parameter from TMDB.
+ERROR 2022-08-11 16:09:20,009 109 services.py services 56202 123145493139456 Unable to fetch resources with parameter from TMDB.
+ERROR 2022-08-11 20:33:47,591 241 log.py log 60638 123145474846720 Internal Server Error: /api/v1/lists/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 15, in post
+    serializer.is_valid(raise_exception=True)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 426, in run_validation
+    value = self.to_internal_value(data)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 479, in to_internal_value
+    for field in fields:
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 362, in _writable_fields
+    for field in self.fields.values():
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `title` is not valid for model `List`.
+ERROR 2022-08-11 20:33:47,604 187 basehttp.py basehttp 60638 123145474846720 "POST /api/v1/lists/ HTTP/1.1" 500 133318
+ERROR 2022-08-11 20:34:26,901 241 log.py log 60654 123145366982656 Internal Server Error: /api/v1/lists/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 15, in post
+    serializer.is_valid(raise_exception=True)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 426, in run_validation
+    value = self.to_internal_value(data)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 479, in to_internal_value
+    for field in fields:
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 362, in _writable_fields
+    for field in self.fields.values():
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/utils/functional.py", line 49, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `backdrop_path` is not valid for model `List`.
+ERROR 2022-08-11 20:34:26,903 187 basehttp.py basehttp 60654 123145366982656 "POST /api/v1/lists/ HTTP/1.1" 500 133881
+ERROR 2022-08-11 21:53:54,668 241 log.py log 61200 123145533607936 Internal Server Error: /api/v1/lists/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 15, in post
+    serializer.is_valid(raise_exception=True)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 430, in run_validation
+    assert value is not None, '.validate() should return the validated data'
+AssertionError: .validate() should return the validated data
+ERROR 2022-08-11 21:53:54,683 187 basehttp.py basehttp 61200 123145533607936 "POST /api/v1/lists/ HTTP/1.1" 500 100697
+ERROR 2022-08-12 14:11:44,370 241 log.py log 62888 123145542467584 Internal Server Error: /api/v1/lists/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 1988, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'CustomUser'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 23, in post
+    list = List.objects.create(serializer.validated_data, user)
+  File "/Users/owner/Desktop/flixcave/list/models.py", line 15, in create
+    list.save()
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/base.py", line 806, in save
+    self.save_base(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/base.py", line 857, in save_base
+    updated = self._save_table(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/base.py", line 1000, in _save_table
+    results = self._do_insert(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/base.py", line 1041, in _do_insert
+    return manager._insert(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1434, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1620, in execute_sql
+    for sql, params in self.as_sql():
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1547, in as_sql
+    value_rows = [
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1548, in <listcomp>
+    [
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1549, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1487, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/fields/related.py", line 1126, in get_db_prep_save
+    return self.target_field.get_db_prep_save(value, connection=connection)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 910, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2668, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 1990, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <CustomUser: edabitphp@aol.com>.
+ERROR 2022-08-12 14:11:44,422 187 basehttp.py basehttp 62888 123145542467584 "POST /api/v1/lists/ HTTP/1.1" 500 169122
+ERROR 2022-08-12 16:40:53,198 241 log.py log 64604 123145350811648 Internal Server Error: /api/v1/lists/populate/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 20, in post
+    List.objects.populate(serializer.validated_data)
+  File "/Users/owner/Desktop/flixcave/list/models.py", line 15, in populate
+    lists = List.objects.all().filter(title__icontains=title)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1071, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1089, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1096, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1502, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1532, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1377, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1187, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1677, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'title' into field. Choices are: created_at, id, list_list_item, name, updated_at, user, user_id
+ERROR 2022-08-12 16:40:53,290 187 basehttp.py basehttp 64604 123145350811648 "POST /api/v1/lists/populate/ HTTP/1.1" 500 134999
+ERROR 2022-08-12 16:51:44,056 241 log.py log 64799 123145506906112 Internal Server Error: /api/v1/lists/populate/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 20, in post
+    List.objects.populate(serializer.validated_data)
+  File "/Users/owner/Desktop/flixcave/list/models.py", line 20, in populate
+    print(result.list_items)
+AttributeError: 'List' object has no attribute 'list_items'
+ERROR 2022-08-12 16:51:44,117 187 basehttp.py basehttp 64799 123145506906112 "POST /api/v1/lists/populate/ HTTP/1.1" 500 97190
+ERROR 2022-08-12 18:24:59,409 241 log.py log 66694 123145539596288 Internal Server Error: /api/v1/lists/populate/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 20, in post
+    lists = List.objects.populate(create_serializer.validated_data, request.user.id)
+TypeError: ListManager.populate() missing 1 required positional argument: 'user_id'
+ERROR 2022-08-12 18:24:59,410 187 basehttp.py basehttp 66694 123145539596288 "POST /api/v1/lists/populate/ HTTP/1.1" 500 92618
+ERROR 2022-08-12 18:25:02,756 241 log.py log 66694 123145539596288 Internal Server Error: /api/v1/lists/populate/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 20, in post
+    lists = List.objects.populate(create_serializer.validated_data, request.user.id)
+TypeError: ListManager.populate() missing 1 required positional argument: 'user_id'
+ERROR 2022-08-12 18:25:02,757 187 basehttp.py basehttp 66694 123145539596288 "POST /api/v1/lists/populate/ HTTP/1.1" 500 92619
+ERROR 2022-08-12 18:25:04,294 241 log.py log 66694 123145539596288 Internal Server Error: /api/v1/lists/populate/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 20, in post
+    lists = List.objects.populate(create_serializer.validated_data, request.user.id)
+TypeError: ListManager.populate() missing 1 required positional argument: 'user_id'
+ERROR 2022-08-12 18:25:04,295 187 basehttp.py basehttp 66694 123145539596288 "POST /api/v1/lists/populate/ HTTP/1.1" 500 92618
+ERROR 2022-08-12 18:25:05,120 241 log.py log 66694 123145539596288 Internal Server Error: /api/v1/lists/populate/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 20, in post
+    lists = List.objects.populate(create_serializer.validated_data, request.user.id)
+TypeError: ListManager.populate() missing 1 required positional argument: 'user_id'
+ERROR 2022-08-12 18:25:05,121 187 basehttp.py basehttp 66694 123145539596288 "POST /api/v1/lists/populate/ HTTP/1.1" 500 92620
+ERROR 2022-08-12 18:25:05,903 241 log.py log 66694 123145539596288 Internal Server Error: /api/v1/lists/populate/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 20, in post
+    lists = List.objects.populate(create_serializer.validated_data, request.user.id)
+TypeError: ListManager.populate() missing 1 required positional argument: 'user_id'
+ERROR 2022-08-12 18:25:05,911 187 basehttp.py basehttp 66694 123145539596288 "POST /api/v1/lists/populate/ HTTP/1.1" 500 92619
+ERROR 2022-08-12 18:25:06,617 241 log.py log 66694 123145539596288 Internal Server Error: /api/v1/lists/populate/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 20, in post
+    lists = List.objects.populate(create_serializer.validated_data, request.user.id)
+TypeError: ListManager.populate() missing 1 required positional argument: 'user_id'
+ERROR 2022-08-12 18:25:06,618 187 basehttp.py basehttp 66694 123145539596288 "POST /api/v1/lists/populate/ HTTP/1.1" 500 92618
+ERROR 2022-08-12 18:25:08,128 241 log.py log 66694 123145539596288 Internal Server Error: /api/v1/lists/populate/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 20, in post
+    lists = List.objects.populate(create_serializer.validated_data, request.user.id)
+TypeError: ListManager.populate() missing 1 required positional argument: 'user_id'
+ERROR 2022-08-12 18:25:08,129 187 basehttp.py basehttp 66694 123145539596288 "POST /api/v1/lists/populate/ HTTP/1.1" 500 92619
+ERROR 2022-08-12 18:25:08,835 241 log.py log 66694 123145539596288 Internal Server Error: /api/v1/lists/populate/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 20, in post
+    lists = List.objects.populate(create_serializer.validated_data, request.user.id)
+TypeError: ListManager.populate() missing 1 required positional argument: 'user_id'
+ERROR 2022-08-12 18:25:08,836 187 basehttp.py basehttp 66694 123145539596288 "POST /api/v1/lists/populate/ HTTP/1.1" 500 92620
+ERROR 2022-08-12 18:25:09,296 241 log.py log 66694 123145539596288 Internal Server Error: /api/v1/lists/populate/
+Traceback (most recent call last):
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 84, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/owner/Desktop/flixcave/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/owner/Desktop/flixcave/list/views.py", line 20, in post
+    lists = List.objects.populate(create_serializer.validated_data, request.user.id)
+TypeError: ListManager.populate() missing 1 required positional argument: 'user_id'
+ERROR 2022-08-12 18:25:09,297 187 basehttp.py basehttp 66694 123145539596288 "POST /api/v1/lists/populate/ HTTP/1.1" 500 92621

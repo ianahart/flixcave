@@ -28,12 +28,23 @@ export interface IPersonDetailsResponse {
   person_details: IPersonDetails;
 }
 
+export interface IPopulateList {
+  id: number;
+  name: string;
+}
+
+export interface IPopulateListResponse {
+  message?: string;
+  results: IPopulateList[];
+}
+
 export interface ITvDetails {
   backdrop_path: string;
   first_air_date: string;
   last_air_date: string;
   original_name: string;
   genres: IGenre[];
+  show_id: number;
   overview: string;
   poster_path: string;
   production_companies: IProductionCompany[];

@@ -7,6 +7,7 @@ import { IMovieDetails, IMovieDetailsResponse } from '../../interfaces';
 import { movieDetailsState } from '../../data/initialState';
 import movieDetailsStyles from '../../styles/details/MovieDetails.module.scss';
 import ProgressCircle from '../../components/Details/ProgressCircle';
+import Actions from '../../components/Details/Actions';
 
 const MovieDetails = () => {
   const params = useParams();
@@ -70,6 +71,11 @@ const MovieDetails = () => {
               <ProgressCircle
                 value={details.vote_percent}
                 text={`${details.vote_percent}%`}
+              />
+              <Actions
+                id={details.id}
+                name={details.original_title}
+                backdropPath={details.poster_path}
               />
             </div>
 

@@ -1,0 +1,99 @@
+.container {
+  min-height: 500px;
+  position: relative;
+  width: 400px;
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.trim {
+  background-color: var(--main-blue);
+  height: 50px;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  svg {
+    color: #fff;
+    cursor: pointer;
+    font-size: 28px;
+    margin: 0.5rem;
+  }
+}
+
+.header {
+  text-align: center;
+  color: var(--main-text);
+  font-size: 1.2rem;
+}
+
+.error {
+  text-align: center;
+  color: red;
+}
+
+.formGroup {
+  position: relative;
+  padding: 1rem;
+  input {
+    width: 80%;
+    height: 35px;
+    border: 1px solid #d2d7d2;
+    border-radius: var(--border-radius);
+  }
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--label-color);
+  }
+}
+
+.populateBox {
+  position: absolute;
+  top: 80px;
+  left: 30px;
+  background: #fff;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  width: 200px;
+  height: 100px;
+  overflow-y: auto;
+}
+
+.btnContainer {
+  padding: 1rem;
+  margin-top: 3.5rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  button {
+    border: none;
+    height: 35px;
+    background: var(--main-blue);
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    border-radius: var(--border-radius);
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.listName {
+  color: var(--label-color);
+  text-align: left;
+  margin: 0.2rem 0;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

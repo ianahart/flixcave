@@ -4,9 +4,10 @@ import { http } from '../../helpers/utils';
 import { useEffectOnce } from '../../hooks/UseEffectOnce';
 import { useState } from 'react';
 import { tvDetailsState } from '../../data/initialState';
-import { ITvDetailsResponse, ITvDetails } from '../../interfaces';
 import ProgressCircle from '../../components/Details/ProgressCircle';
 import tvDetailsStyles from '../../styles/details/TvDetails.module.scss';
+import Actions from '../../components/Details/Actions';
+
 const TvDetails = () => {
   const params = useParams();
   const [details, setDetails] = useState(tvDetailsState);
@@ -67,6 +68,11 @@ const TvDetails = () => {
               <ProgressCircle
                 value={details.vote_percent}
                 text={`${details.vote_percent}%`}
+              />
+              <Actions
+                id={details.show_id}
+                name={details.original_name}
+                backdropPath={details.poster_path}
               />
             </div>
 

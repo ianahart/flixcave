@@ -62,5 +62,6 @@ export const tvDetailsState = {
   production_companies: [],
   tagline: '',
   vote_average: 0,
+  show_id: 0,
   vote_percent: 0,
 };

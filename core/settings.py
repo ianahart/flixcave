@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'authentication',
     'verification_token',
     'movie',
+    'list',
 ]
 
 
