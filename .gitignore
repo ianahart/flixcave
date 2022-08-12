@@ -12,6 +12,9 @@ instance/
 .coverage
 htmlcov/
 commands.txt
+logs/log_file1.log
+logs/*
+
 
 .env
 .DS_Store

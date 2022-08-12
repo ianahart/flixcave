@@ -15,13 +15,13 @@ class ListManager(models.Manager):
     def populate(self, data: dict[str, str], user_id: int):
         exclude_lists = []
         name, title = data.values()
-        results = List.objects.all().filter(name__icontains=title).filter(
-            user_id=user_id)
+        results = List.objects.all().filter(name__icontains=title).filter(user_id=user_id)
         list_item = ListItem.objects.filter(title=name).first()
-        for result in results:
-            for item in result.list_list_items.all():
-                if item.title == list_item.title:
-                    exclude_lists.append(result.name)
+        if list_item is not None:
+            for result in results:
+                for item in result.list_list_items.all():
+                    if item.title == list_item.title:
+                        exclude_lists.append(result.name)
 
         lists = [list for list in results if list.name not in exclude_lists]
 
