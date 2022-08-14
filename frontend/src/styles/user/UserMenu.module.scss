@@ -9,8 +9,8 @@
   align-items: center;
   justify-content: center;
   background: var(--main-teal);
-  width: 3.5vw;
-  height: 3.5vw;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   p {
     pointer-events: none;
@@ -21,7 +21,6 @@
   position: absolute;
   top: 50px;
   right: 0;
-  width: 170px;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   background: #fff;
@@ -56,6 +55,7 @@
   padding: 0.25rem;
   color: var(--main-text);
   cursor: pointer;
+  border-bottom: 1px solid #e3e3ec;
 
   a {
     font-size: 0.85rem;

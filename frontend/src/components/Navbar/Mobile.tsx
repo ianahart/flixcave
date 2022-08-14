@@ -1,8 +1,10 @@
 import { MouseEvent, useCallback, useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../app/hooks';
 import { movies, tvShows, people, discussions } from '../../data/data';
 import mobileStyles from '../../styles/navbar/Mobile.module.scss';
+import UserMenu from '../User/UserMenu';
 import MobileNavListItem from './MobileNavListItem';
 
 interface IMobileProps {
@@ -10,6 +12,7 @@ interface IMobileProps {
 }
 
 export default function Mobile({ handleSetMobileMenuOpen }: IMobileProps) {
+  const user = useAppSelector((state) => state.user.value);
   const [windowWidth, setWindowWidth] = useState(0);
   const handleOnClick = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
@@ -43,12 +46,18 @@ export default function Mobile({ handleSetMobileMenuOpen }: IMobileProps) {
         <AiOutlineClose />
       </div>
       <ul className={mobileStyles.mainNav}>
-        <li onClick={closeOnLink}>
-          <Link to="/login">Login</Link>
-        </li>
-        <li onClick={closeOnLink}>
-          <Link to="/join">Join</Link>
-        </li>
+        {user.logged_in && <UserMenu />}
+
+        {!user.logged_in && (
+          <li onClick={closeOnLink}>
+            <Link to="/login">Login</Link>
+          </li>
+        )}
+        {!user.logged_in && (
+          <li onClick={closeOnLink}>
+            <Link to="/join">Join</Link>
+          </li>
+        )}
       </ul>
 
       <div className={mobileStyles.subMenus}>
