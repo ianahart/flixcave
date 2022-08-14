@@ -5,6 +5,7 @@ import { http } from '../../helpers/utils';
 import { useEffectOnce } from '../../hooks/UseEffectOnce';
 import listsStyles from '../../styles/lists/Lists.module.scss';
 import { IListsResponse, IList } from '../../interfaces';
+import Jumbotron from '../../components/Mixed/Jumbotron';
 
 const Lists = () => {
   const [lists, setLists] = useState<IList[]>([]);
@@ -25,7 +26,7 @@ const Lists = () => {
 
   return (
     <div className={listsStyles.container}>
-      <div className={listsStyles.jumbotron}></div>
+      <Jumbotron />
       <div className={listsStyles.header}>
         <header>
           <h2>Your Lists</h2>

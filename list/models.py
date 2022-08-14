@@ -15,7 +15,7 @@ class ListManager(models.Manager):
     def get_list(self, id: int, page: int):
         list = List.objects.get(pk=id)
 
-        p = Paginator(list.list_list_items.all(), 2)
+        p = Paginator(list.list_list_items.all().order_by('id'), 2)
         next_page = int(page) + 1
         cur_page = p.page(next_page)
         list_items = cur_page.object_list

@@ -46,6 +46,7 @@ class CustomUserManager(BaseUserManager):
             logger.error('Unable to decode token to refresh user.')
         if decoded_token is not None:
             user = CustomUser.objects.get(pk=decoded_token['user_id'])
+            setattr(user, 'member_since', user.created_at.strftime('%B %Y'))
 
             return user
 
@@ -101,6 +102,7 @@ class CustomUserManager(BaseUserManager):
         user.logged_in = True
         user.save()
         user.refresh_from_db()
+        setattr(user, 'member_since', user.created_at.strftime('%B %Y'))
 
         refresh_token = RefreshToken.for_user(user)
         access_token = refresh_token.access_token

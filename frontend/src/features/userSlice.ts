@@ -13,6 +13,7 @@ const initialState: IUserState = {
     last_name: '',
     email: '',
     logged_in: false,
+    member_since: '',
   },
 };
 

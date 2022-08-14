@@ -5,6 +5,7 @@ import { http } from '../../helpers/utils';
 import { useEffectOnce } from '../../hooks/UseEffectOnce';
 import listStyles from '../../styles/lists/List.module.scss';
 import { IListResponse, IListItem } from '../../interfaces';
+import Jumbotron from '../../components/Mixed/Jumbotron';
 
 const List = () => {
   const params = useParams();
@@ -41,10 +42,9 @@ const List = () => {
       }
     }
   };
-  console.log(listItems);
   return (
     <div className={listStyles.container}>
-      <div className={listStyles.jumbotron}></div>
+      <Jumbotron />
       <div className={listStyles.listContainer}>
         {listItems.map((listItem) => {
           return (

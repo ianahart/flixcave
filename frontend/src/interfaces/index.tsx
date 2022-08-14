@@ -189,6 +189,7 @@ export interface IUser {
   last_name: string;
   email: string;
   logged_in: boolean;
+  member_since: string;
 }
 
 export interface ITokens {
