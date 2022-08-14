@@ -41,6 +41,10 @@
     height: 45px;
     font-size: 18px;
     border-radius: 20px;
+    outline: none;
+    &:focus {
+      outline: none;
+    }
   }
 }
 
