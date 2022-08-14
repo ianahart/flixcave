@@ -70,7 +70,8 @@ const TvDetails = () => {
                 text={`${details.vote_percent}%`}
               />
               <Actions
-                id={details.show_id}
+                type="tv"
+                id={details.id}
                 name={details.original_name}
                 backdropPath={details.poster_path}
               />

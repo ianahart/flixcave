@@ -75,6 +75,8 @@ class ListItemManager(models.Manager):
             backdrop_path=data['backdrop_path'],
             user_id=data['user_id'],
             list_id=list_id,
+            type=data['type'],
+            resource_id=data['resource_id'],
         )
 
         list_item.save()
@@ -86,8 +88,10 @@ class ListItem(models.Model):
 
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
+    type = models.CharField(max_length=100, blank=True, null=True)
     title = models.CharField(max_length=200)
     backdrop_path = models.CharField(max_length=200)
+    resource_id = models.IntegerField(blank=True, null=True)
     user = models.ForeignKey(
         'account.CustomUser',
         on_delete=models.CASCADE,

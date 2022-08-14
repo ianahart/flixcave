@@ -88,7 +88,7 @@ function App() {
                 <Route path="/search" element={<Search />}></Route>
                 <Route path="/movies/:id" element={<MovieDetails />}></Route>
                 <Route path="/collections/:id" element={<CollectionDetails />}></Route>
-                <Route path="/tv-shows/:id" element={<TvDetails />}></Route>
+                <Route path="/tv/:id" element={<TvDetails />}></Route>
                 <Route path="/people/:id" element={<PersonDetails />}></Route>
               </Routes>
             </WithAxios>

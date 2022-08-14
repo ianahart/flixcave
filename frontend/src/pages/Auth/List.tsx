@@ -5,6 +5,7 @@ import { http } from '../../helpers/utils';
 import { useEffectOnce } from '../../hooks/UseEffectOnce';
 import listStyles from '../../styles/lists/List.module.scss';
 import { IListResponse, IListItem } from '../../interfaces';
+
 const List = () => {
   const params = useParams();
   const [listItems, setListItems] = useState<IListItem[]>([]);
@@ -40,7 +41,7 @@ const List = () => {
       }
     }
   };
-
+  console.log(listItems);
   return (
     <div className={listStyles.container}>
       <div className={listStyles.jumbotron}></div>
@@ -48,10 +49,12 @@ const List = () => {
         {listItems.map((listItem) => {
           return (
             <div className={listStyles.listItem} key={listItem.id}>
-              <div className={listStyles.content}>
-                <img src={listItem.backdrop_path} alt={listItem.title} />
-                <h3>{listItem.title}</h3>
-              </div>
+              <RouterLink to={`/${listItem.type}/${listItem.resource_id}`}>
+                <div className={listStyles.content}>
+                  <img src={listItem.backdrop_path} alt={listItem.title} />
+                  <h3>{listItem.title}</h3>
+                </div>
+              </RouterLink>
               <div className={listStyles.btnContainer}>
                 <button onClick={() => deleteItem(listItem.id)}>Delete</button>
               </div>

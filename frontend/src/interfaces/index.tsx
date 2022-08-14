@@ -53,6 +53,8 @@ export interface IListItem {
   id: number;
   backdrop_path: string;
   title: string;
+  type: string;
+  resource_id: number;
 }
 
 export interface IListResponse {
@@ -68,7 +70,7 @@ export interface ITvDetails {
   last_air_date: string;
   original_name: string;
   genres: IGenre[];
-  show_id: number;
+  id: number;
   overview: string;
   poster_path: string;
   production_companies: IProductionCompany[];

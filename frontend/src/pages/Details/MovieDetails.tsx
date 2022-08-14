@@ -73,6 +73,7 @@ const MovieDetails = () => {
                 text={`${details.vote_percent}%`}
               />
               <Actions
+                type="movies"
                 id={details.id}
                 name={details.original_title}
                 backdropPath={details.poster_path}

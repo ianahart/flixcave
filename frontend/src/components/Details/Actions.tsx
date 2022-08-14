@@ -9,12 +9,13 @@ import { AxiosError } from 'axios';
 import { http } from '../../helpers/utils';
 
 interface IActionProps {
+  type: string;
   id: number;
   name: string;
   backdropPath: string;
 }
 
-const Actions = ({ id, name, backdropPath }: IActionProps) => {
+const Actions = ({ type, id, name, backdropPath }: IActionProps) => {
   const user = useAppSelector((state) => state.user.value);
   const [modalOpen, setModalOpen] = useState(false);
   const [listError, setListError] = useState('');
@@ -27,14 +28,15 @@ const Actions = ({ id, name, backdropPath }: IActionProps) => {
     try {
       if (listTitle.trim().length === 0) return;
       setListError('');
-      const response = await http.post('/lists/', {
+      await http.post('/lists/', {
+        resource_id: id,
+        type,
         title: listTitle,
         user_id: user.id,
         backdrop_path: `https://image.tmdb.org/t/p/original${backdropPath}`,
         name,
       });
       handleModalOpen(false);
-      console.log(response);
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
         console.log(err.response);

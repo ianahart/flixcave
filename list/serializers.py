@@ -6,7 +6,7 @@ from list.models import List, ListItem
 class ListItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = ListItem
-        fields = ('id', 'title', 'backdrop_path', )
+        fields = ('id', 'title', 'backdrop_path', 'type', 'resource_id', )
 
 
 class ListSerializer(serializers.ModelSerializer):
@@ -35,10 +35,12 @@ class CreateListSerializer(serializers.Serializer):
     title = serializers.CharField()
     user_id = serializers.IntegerField()
     backdrop_path = serializers.CharField()
+    type = serializers.CharField()
+    resource_id = serializers.CharField()
 
     class Meta:
         model = List
-        fields = ('title', 'user_id', 'backdrop_path', 'name', )
+        fields = ('title', 'user_id', 'backdrop_path', 'name', 'type', 'resource_id', )
 
     def validate_title(self, title: str):
         if len(title) == 0:

@@ -44,7 +44,7 @@ collection_fields = [
 tv_fields = [
     'backdrop_path',
     'genres',
-    'show_id',
+    'id',
     'original_name',
     'overview',
     'poster_path',

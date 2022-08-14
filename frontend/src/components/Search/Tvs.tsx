@@ -14,7 +14,7 @@ const Movies = () => {
           {data.map((tv: ITv) => {
             return (
               <div key={tv.id} className={tvStyles.tvContainer}>
-                <RouterLink to={`/tv-shows/${tv.id}`}>
+                <RouterLink to={`/tv/${tv.id}`}>
                   <div>
                     {tv.poster_path && (
                       <img
