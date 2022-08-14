@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'verification_token',
     'movie',
     'list',
+    'favorite',
 ]
 
 

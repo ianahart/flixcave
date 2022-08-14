@@ -49,6 +49,7 @@ export const movieDetailsState = {
   tagline: '',
   vote_average: 0,
   vote_percent: 0,
+  favorited: false,
 };
 
 export const tvDetailsState = {
@@ -64,4 +65,5 @@ export const tvDetailsState = {
   vote_average: 0,
   id: 0,
   vote_percent: 0,
+  favorited: false,
 };

@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound
+from favorite.models import Favorite
 from movie.services import tmdb
 
 
@@ -50,11 +51,16 @@ class TMDBTVDetailsAPIView(APIView):
         try:
 
             tv_details = tmdb.tv_details(id)
+            if tv_details:
+                is_favorited = Favorite.objects.find_favorite(
+                    tv_details['id'], request.user.id)
+                if is_favorited is not None:
+                    tv_details['favorited'] = True if is_favorited is not None else False
 
-            return Response({
-                'message': 'success',
-                'tv_details': tv_details,
-            }, status=status.HTTP_200_OK)
+                return Response({
+                    'message': 'success',
+                    'tv_details': tv_details,
+                }, status=status.HTTP_200_OK)
         except NotFound:
             return Response({
                 'errors': {}
@@ -67,10 +73,16 @@ class TMDBMovieDetailsAPIView(APIView):
     def get(self, request, id: int):
         try:
             movie_details = tmdb.movie_details(id)
-            return Response({
-                'message': 'success',
-                'movie_details': movie_details,
-            }, status=status.HTTP_200_OK)
+            if movie_details:
+                is_favorited = Favorite.objects.find_favorite(
+                    movie_details['id'], request.user.id)
+                if is_favorited is not None:
+                    movie_details['favorited'] = True if is_favorited is not None else False
+
+                return Response({
+                    'message': 'success',
+                    'movie_details': movie_details,
+                }, status=status.HTTP_200_OK)
         except NotFound:
             return Response({
                 'errors': {}

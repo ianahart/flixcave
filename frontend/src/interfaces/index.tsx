@@ -8,6 +8,22 @@ export interface IGenre {
   name: string;
 }
 
+export interface IFavorite {
+  backdrop_path: string;
+  id: number;
+  resource_id: number;
+  title: string;
+  type: string;
+  user_id: number;
+}
+
+export interface IGetFavoritesResponse {
+  message?: string;
+  has_next: boolean;
+  page: number;
+  favorites: IFavorite[];
+}
+
 export interface IProductionCompany {
   id: number;
   logo_path: string;
@@ -77,6 +93,7 @@ export interface ITvDetails {
   tagline: string;
   vote_average: number;
   vote_percent: number;
+  favorited: boolean;
 }
 
 export interface IMovieDetails {
@@ -95,6 +112,7 @@ export interface IMovieDetails {
   vote_average: number;
   vote_percent: number;
   date: string;
+  favorited: boolean;
 }
 
 export interface ITvDetailsResponse {

@@ -27,6 +27,13 @@ const TvDetails = () => {
     fetchTvDetails();
   });
 
+  const updateFavorite = (favorited: boolean) => {
+    setDetails((prevState) => ({
+      ...prevState,
+      favorited,
+    }));
+  };
+
   return (
     <div className={tvDetailsStyles.container}>
       <div
@@ -74,6 +81,8 @@ const TvDetails = () => {
                 id={details.id}
                 name={details.original_name}
                 backdropPath={details.poster_path}
+                favorited={details.favorited}
+                updateFavorite={updateFavorite}
               />
             </div>
 

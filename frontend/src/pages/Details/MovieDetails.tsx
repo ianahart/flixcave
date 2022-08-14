@@ -26,6 +26,13 @@ const MovieDetails = () => {
     }
   };
 
+  const updateFavorite = (favorited: boolean) => {
+    setDetails((prevState) => ({
+      ...prevState,
+      favorited,
+    }));
+  };
+
   useEffectOnce(() => {
     fetchMovieDetails();
   });
@@ -77,6 +84,8 @@ const MovieDetails = () => {
                 id={details.id}
                 name={details.original_title}
                 backdropPath={details.poster_path}
+                favorited={details.favorited}
+                updateFavorite={updateFavorite}
               />
             </div>
 

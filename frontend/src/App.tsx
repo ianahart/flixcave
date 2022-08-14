@@ -22,6 +22,8 @@ import TvDetails from './pages/Details/TvDetails';
 import PersonDetails from './pages/Details/PersonDetails';
 import Lists from './pages/Auth/Lists';
 import List from './pages/Auth/List';
+import Favorites from './pages/Auth/Favorites';
+
 function App() {
   const dispatch = useAppDispatch();
   const refreshUser = useCallback(async () => {
@@ -81,6 +83,14 @@ function App() {
                   element={
                     <RequireAuth>
                       <List />
+                    </RequireAuth>
+                  }
+                />
+                <Route
+                  path="/favorites/"
+                  element={
+                    <RequireAuth>
+                      <Favorites />
                     </RequireAuth>
                   }
                 />

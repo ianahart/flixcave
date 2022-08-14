@@ -1,6 +1,11 @@
 import { AxiosError } from 'axios';
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { AiOutlineUser, AiOutlineLogout, AiOutlineUnorderedList } from 'react-icons/ai';
+import {
+  AiOutlineUser,
+  AiOutlineLogout,
+  AiOutlineUnorderedList,
+  AiFillHeart,
+} from 'react-icons/ai';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { http, retreiveTokens } from '../../helpers/utils';
@@ -72,6 +77,11 @@ const UserMenu = () => {
                 <p>{user.email}</p>
               </div>
             </div>
+          </div>
+
+          <div className={userMenuStyles.link}>
+            <AiFillHeart />
+            <RouterLink to="/favorites">Your Favorites</RouterLink>
           </div>
 
           <div className={userMenuStyles.link}>
