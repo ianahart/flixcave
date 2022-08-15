@@ -3,6 +3,7 @@ import {
   AiFillHeart,
   AiFillEye,
   AiOutlineHeart,
+  AiOutlineEye,
 } from 'react-icons/ai';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -20,16 +21,18 @@ interface IActionProps {
   name: string;
   backdropPath: string;
   favorited: boolean;
-  updateFavorite: (favorited: boolean) => void;
+  watchlist: boolean;
+  updateDetails: (bool: boolean, field: string) => void;
 }
 
 const Actions = ({
+  watchlist,
   favorited,
   type,
   id,
   name,
   backdropPath,
-  updateFavorite,
+  updateDetails,
 }: IActionProps) => {
   const navigate = useNavigate();
   const user = useAppSelector((state) => state.user.value);
@@ -50,7 +53,7 @@ const Actions = ({
         backdrop_path: `https://image.tmdb.org/t/p/original${backdropPath}`,
         name,
       });
-      updateFavorite(true);
+      updateDetails(true, 'favorited');
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
         return;
@@ -62,7 +65,7 @@ const Actions = ({
     try {
       redirectIfNotLoggedIn();
       await http.delete(`/favorites/${id}`);
-      updateFavorite(false);
+      updateDetails(false, 'favorited');
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
         return;
@@ -110,11 +113,21 @@ const Actions = ({
         backdrop_path: `https://image.tmdb.org/t/p/original${backdropPath}`,
         name,
       });
-
-      console.log(response);
+      updateDetails(true, 'watchlist');
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
         console.log(err.response);
+      }
+    }
+  };
+
+  const removeFromWatchlist = async () => {
+    try {
+      await http.delete(`/watchlists/${id}/`);
+      updateDetails(false, 'watchlist');
+    } catch (err: unknown | AxiosError) {
+      if (err instanceof AxiosError && err.response) {
+        return;
       }
     }
   };
@@ -143,9 +156,15 @@ const Actions = ({
           <Action Icon={AiOutlineHeart} toolTip="Add to favorites" />
         </div>
       )}
-      <div onClick={handleAddWatchList}>
-        <Action Icon={AiFillEye} toolTip="Add to watchlist" />
-      </div>
+      {watchlist ? (
+        <div onClick={removeFromWatchlist}>
+          <Action Icon={AiFillEye} toolTip="Remove from list" />
+        </div>
+      ) : (
+        <div onClick={handleAddWatchList}>
+          <Action Icon={AiOutlineEye} toolTip="Add to watchlist" />
+        </div>
+      )}
       <Action Icon={MdOutlineRateReview} toolTip="Write a review" />
     </div>
   );

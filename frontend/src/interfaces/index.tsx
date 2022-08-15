@@ -111,6 +111,7 @@ export interface ITvDetails {
   vote_average: number;
   vote_percent: number;
   favorited: boolean;
+  watchlist: boolean;
 }
 
 export interface IMovieDetails {
@@ -130,6 +131,7 @@ export interface IMovieDetails {
   vote_percent: number;
   date: string;
   favorited: boolean;
+  watchlist: boolean;
 }
 
 export interface ITvDetailsResponse {

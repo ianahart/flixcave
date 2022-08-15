@@ -50,6 +50,7 @@ export const movieDetailsState = {
   vote_average: 0,
   vote_percent: 0,
   favorited: false,
+  watchlist: false,
 };
 
 export const tvDetailsState = {
@@ -66,4 +67,5 @@ export const tvDetailsState = {
   id: 0,
   vote_percent: 0,
   favorited: false,
+  watchlist: false,
 };

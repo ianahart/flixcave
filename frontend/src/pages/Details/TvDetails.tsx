@@ -27,10 +27,10 @@ const TvDetails = () => {
     fetchTvDetails();
   });
 
-  const updateFavorite = (favorited: boolean) => {
+  const updateDetails = (bool: boolean, field: string) => {
     setDetails((prevState) => ({
       ...prevState,
-      favorited,
+      [field]: bool,
     }));
   };
 
@@ -82,7 +82,8 @@ const TvDetails = () => {
                 name={details.original_name}
                 backdropPath={details.poster_path}
                 favorited={details.favorited}
-                updateFavorite={updateFavorite}
+                watchlist={details.watchlist}
+                updateDetails={updateDetails}
               />
             </div>
 

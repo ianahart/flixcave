@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.exceptions import NotFound
 from favorite.models import Favorite
 from movie.services import tmdb
+from watchlist.models import WatchList
 
 
 class TMDBPersonDetailsAPIView(APIView):
@@ -49,13 +50,17 @@ class TMDBTVDetailsAPIView(APIView):
 
     def get(self, request, id: int):
         try:
-
             tv_details = tmdb.tv_details(id)
             if tv_details:
                 is_favorited = Favorite.objects.find_favorite(
                     tv_details['id'], request.user.id)
                 if is_favorited is not None:
                     tv_details['favorited'] = True if is_favorited is not None else False
+
+                watchlist = WatchList.objects.find_watchlist_item(
+                    tv_details['id'], request.user.id)
+                if watchlist is not None:
+                    tv_details['watchlist'] = True if watchlist is not None else False
 
                 return Response({
                     'message': 'success',
@@ -78,6 +83,11 @@ class TMDBMovieDetailsAPIView(APIView):
                     movie_details['id'], request.user.id)
                 if is_favorited is not None:
                     movie_details['favorited'] = True if is_favorited is not None else False
+
+                watchlist = WatchList.objects.find_watchlist_item(
+                    movie_details['id'], request.user.id)
+                if watchlist is not None:
+                    movie_details['watchlist'] = True if watchlist is not None else False
 
                 return Response({
                     'message': 'success',

@@ -52,11 +52,13 @@
 .link {
   display: flex;
   align-items: center;
-  padding: 0.25rem;
+  padding: 0.5rem;
   color: var(--main-text);
   cursor: pointer;
   border-bottom: 1px solid #e3e3ec;
-
+  &:hover {
+    background: #e7e7ef;
+  }
   a {
     font-size: 0.85rem;
     margin-left: 0.25rem;
