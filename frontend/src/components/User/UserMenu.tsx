@@ -5,6 +5,7 @@ import {
   AiOutlineLogout,
   AiOutlineUnorderedList,
   AiFillHeart,
+  AiFillEye,
 } from 'react-icons/ai';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
@@ -87,6 +88,10 @@ const UserMenu = () => {
           <div className={userMenuStyles.link}>
             <AiOutlineUnorderedList />
             <RouterLink to="/lists">Your Lists</RouterLink>
+          </div>
+          <div className={userMenuStyles.link}>
+            <AiFillEye />
+            <RouterLink to="/watchlist">Watchlist</RouterLink>
           </div>
 
           <div className={userMenuStyles.link}>

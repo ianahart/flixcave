@@ -24,6 +24,23 @@ export interface IGetFavoritesResponse {
   favorites: IFavorite[];
 }
 
+export interface IWatchListItem {
+  backdrop_path: string;
+  id: number;
+  resource_id: number;
+  title: string;
+  type: string;
+  user_id: number;
+  note: string;
+}
+
+export interface IGetWatchlistResponse {
+  message?: string;
+  has_next: boolean;
+  page: number;
+  watchlist_items: IWatchListItem[];
+}
+
 export interface IProductionCompany {
   id: number;
   logo_path: string;

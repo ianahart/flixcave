@@ -23,6 +23,7 @@ import PersonDetails from './pages/Details/PersonDetails';
 import Lists from './pages/Auth/Lists';
 import List from './pages/Auth/List';
 import Favorites from './pages/Auth/Favorites';
+import WatchList from './pages/Auth/WatchList';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -83,6 +84,15 @@ function App() {
                   element={
                     <RequireAuth>
                       <List />
+                    </RequireAuth>
+                  }
+                />
+
+                <Route
+                  path="/watchlist/"
+                  element={
+                    <RequireAuth>
+                      <WatchList />
                     </RequireAuth>
                   }
                 />

@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'movie',
     'list',
     'favorite',
+    'watchlist',
 ]
 
 

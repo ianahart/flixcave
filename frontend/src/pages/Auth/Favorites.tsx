@@ -18,11 +18,9 @@ const Favorites = () => {
       setPage(response.data.page);
       setFavorites((prevState) => [...prevState, ...response.data.favorites]);
       setHasNext(response.data.has_next);
-
-      console.log(response);
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
-        console.log(err.response);
+        return;
       }
     }
   };
