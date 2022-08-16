@@ -6,21 +6,44 @@ from rest_framework.exceptions import NotFound, ParseError
 
 from account.permissions import AccountPermission
 from watchlist.models import WatchList
-from watchlist.serializers import CreateWatchListSerializer, WatchListSerializer
+from watchlist.serializers import CreateWatchListSerializer, UpdateWatchListSerializer, WatchListSerializer
 
 
 class DetailsAPIView(APIView):
     permission_classes = [IsAuthenticated, AccountPermission, ]
 
+    def patch(self, request, id: int):
+        try:
+
+            watchlist = WatchList.objects.get(pk=id)
+
+            self.check_object_permissions(request, watchlist.user)
+            update_serializer = UpdateWatchListSerializer(data=request.data)
+            update_serializer.is_valid(raise_exception=True)
+
+            result = WatchList.objects.update(
+                id, update_serializer.validated_data)
+            print(result)
+            serializer = WatchListSerializer(result)
+
+            return Response({
+                'result': serializer.data,
+            }, status=status.HTTP_200_OK)
+
+        except ParseError:
+            return Response({
+                'errors': {}
+            }, status=status.HTTP_400_BAD_REQUEST)
+
     def delete(self, request, id: int):
         try:
 
-            favorite = WatchList.objects.find_watchlist_item(
+            watchlist = WatchList.objects.find_watchlist_item(
                 id, request.user.id)
 
-            self.check_object_permissions(request, favorite.user)
+            self.check_object_permissions(request, watchlist.user)
 
-            favorite.delete()
+            watchlist.delete()
 
             return Response({
             }, status=status.HTTP_204_NO_CONTENT)

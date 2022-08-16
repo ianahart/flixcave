@@ -1,21 +1,23 @@
 import WatchListStyles from '../../styles/watchlist/WatchList.module.scss';
 import { AxiosError } from 'axios';
-import { useState } from 'react';
+import { useState, MouseEvent, ChangeEvent } from 'react';
 import Jumbotron from '../../components/Mixed/Jumbotron';
-import { Link as RouterLink } from 'react-router-dom';
 import { http } from '../../helpers/utils';
 import { useEffectOnce } from '../../hooks/UseEffectOnce';
 import { IGetWatchlistResponse, IWatchListItem } from '../../interfaces';
+import WatchListItem from '../../components/WatchList/WatchListItem';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const WatchList = () => {
   const [hasNext, setHasNext] = useState(false);
   const [watchlist, setWatchlist] = useState<IWatchListItem[]>([]);
   const [page, setPage] = useState(1);
+  const [modalId, setModalId] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [note, setNote] = useState('');
   const fetchWatchlist = async (endpoint: string) => {
     try {
       const response = await http.get<IGetWatchlistResponse>(endpoint);
-
-      console.log(response);
       setPage(response.data.page);
       setWatchlist((prevState) => [...prevState, ...response.data.watchlist_items]);
       setHasNext(response.data.has_next);
@@ -38,30 +40,93 @@ const WatchList = () => {
       setWatchlist(filteredWatchlist);
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
+                return;
+      }
+    }
+  };
+
+  const openModal = (id: number, existingNote: string) => {
+    setModalOpen(true);
+    setModalId(id);
+    setNote(existingNote === null ? '' : existingNote);
+  };
+
+  const closeModal = () => {
+    setModalId(0);
+    setModalOpen(false);
+    setNote('');
+  };
+
+  const cancelAddNoteForm = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    closeModal();
+  };
+
+  const updateNotes = (note: string) => {
+    const updatedWatchlist = watchlist.map((item) => {
+      if (item.id === modalId) {
+        item.note = note;
+      }
+      return item;
+    });
+
+    setWatchlist(updatedWatchlist);
+  };
+
+  const handleUpdateNotes = async (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    try {
+      if (note.length > 400) return;
+      const response = await http.patch(`/watchlists/${modalId}/`, {
+        note,
+      });
+
+      updateNotes(response.data.result.note);
+
+      closeModal();
+    } catch (err: unknown | AxiosError) {
+      if (err instanceof AxiosError && err.response) {
         console.log(err.response);
       }
     }
   };
 
+  const handleNoteChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setNote(e.target.value);
+  };
+
   return (
     <div className={WatchListStyles.container}>
+      {modalOpen && (
+        <div className={WatchListStyles.modal}>
+          <div className={WatchListStyles.addNoteContainer}>
+            <div onClick={closeModal} className={WatchListStyles.addNoteClose}>
+              <AiOutlineClose />
+            </div>
+            <div className={WatchListStyles.addNoteHeader}>
+              <h2>Notes</h2>
+            </div>
+            <div className={WatchListStyles.addNoteBox}>
+              <textarea value={note} onChange={handleNoteChange}></textarea>
+            </div>
+            <div className={WatchListStyles.addNoteBtnContainer}>
+              <button onClick={handleUpdateNotes}>Update notes</button>
+              <button onClick={cancelAddNoteForm}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <Jumbotron />
       <div className={WatchListStyles.listContainer}>
         {watchlist.map((item) => {
           return (
-            <div className={WatchListStyles.listItem} key={item.id}>
-              <RouterLink to={`/${item.type}/${item.resource_id}`}>
-                <div className={WatchListStyles.content}>
-                  <img src={item.backdrop_path} alt={item.title} />
-                  <h3>{item.title}</h3>
-                </div>
-              </RouterLink>
-              <div className={WatchListStyles.btnContainer}>
-                <button onClick={() => removeFromWatchlist(item.resource_id)}>
-                  Delete
-                </button>
-              </div>
-            </div>
+            <WatchListItem
+              openModal={openModal}
+              removeFromWatchlist={removeFromWatchlist}
+              key={item.id}
+              item={item}
+            />
           );
         })}
       </div>

@@ -6,6 +6,16 @@ from typing import Union
 
 class WatchListManager(models.Manager):
 
+    def update(self, id: int, data: dict[str, str]):
+        watchlist = WatchList.objects.get(pk=id)
+
+        watchlist.note = data['note']
+
+        watchlist.save()
+        watchlist.refresh_from_db()
+
+        return watchlist
+
     def create(self, data: dict[str, Union[str, int]]):
         watch_list = self.model(
             title=data['name'],
@@ -20,7 +30,6 @@ class WatchListManager(models.Manager):
     def find_watchlist_item(self, resource_id: int, user_id: int):
         return WatchList.objects.all().filter(
             resource_id=resource_id).filter(user_id=user_id).first()
-
 
     def get_watch_list_items(self, user_id: int, page: int):
         objects = WatchList.objects.all().order_by('id').filter(user_id=user_id)

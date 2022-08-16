@@ -59,11 +59,123 @@
 .listItem {
   border-radius: var(--border-radius);
   color: var(--main-text);
+  position: relative;
 
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
   padding: 0.25rem;
-  margin: 1.2rem;
+  margin: 2rem;
   display: flex;
   justify-content: space-between;
+}
+
+.addNoteClose {
+  background: var(--main-teal);
+  color: #fff;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  svg {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+}
+
+.addNoteContainer {
+  background: #fff;
+  width: 350px;
+  height: 400px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: 10rem auto 0 auto;
+}
+
+.editBtn {
+  cursor: pointer;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  color: #fff;
+  background: var(--main-teal);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  svg {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+.modal {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+.addNoteHeader {
+  h2 {
+    color: var(--main-text);
+    text-align: center;
+  }
+}
+
+.addNoteBox {
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  textarea {
+    width: 90%;
+    resize: none;
+    height: 80px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+  }
+}
+
+.watchListActions {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.addNoteBtnContainer {
+  display: flex;
+  justify-content: center;
+  button {
+    margin: 1rem;
+    border: none;
+    height: 35px;
+    transition: all 0.25s ease-out;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    color: #fff;
+    &:hover {
+      opacity: 0.8;
+    }
+    &:first-of-type {
+      background: var(--main-teal);
+    }
+    &:last-of-type {
+      background: var(--main-blue);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .listItem {
+    margin: 1.5rem 0;
+    width: 100%;
+  }
 }

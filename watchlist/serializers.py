@@ -10,6 +10,19 @@ class WatchListSerializer(serializers.ModelSerializer):
                   'type', 'resource_id', 'note', )
 
 
+class UpdateWatchListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WatchList
+        fields = ('note', )
+
+
+    def validate_note(self, value):
+        if len(value) > 400:
+            raise serializers.ValidationError('Note cannot exceed 400 characters.')
+
+        return value
+
+
 class CreateWatchListSerializer(serializers.Serializer):
     name = serializers.CharField()
     user_id = serializers.IntegerField()
