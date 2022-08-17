@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { ISubNavListItem } from '../../interfaces';
 import navListItemStyles from '../../styles/navbar/NavListItem.module.scss';
+import { Link as RouterLink } from 'react-router-dom';
 
 interface INavListItemProps {
   label: string;
+  link: string;
   subListItems: ISubNavListItem[];
 }
 
-export default function NavListItem({ label, subListItems }: INavListItemProps) {
+export default function NavListItem({ label, link, subListItems }: INavListItemProps) {
   const [subMenuOpen, setSubMenuOpen] = useState(false);
 
   const handleOnMouseEnter = () => {
@@ -29,7 +31,11 @@ export default function NavListItem({ label, subListItems }: INavListItemProps) 
         <div className={navListItemStyles.subMenu}>
           <ul>
             {subListItems?.map((subListItem) => {
-              return <li key={subListItem.id}>{subListItem.text}</li>;
+              return (
+                <RouterLink key={subListItem.id} to={`/${link}${subListItem.link}`}>
+                  <li>{subListItem.text}</li>
+                </RouterLink>
+              );
             })}
           </ul>
         </div>

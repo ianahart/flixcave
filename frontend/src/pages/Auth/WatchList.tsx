@@ -40,7 +40,7 @@ const WatchList = () => {
       setWatchlist(filteredWatchlist);
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
-                return;
+        return;
       }
     }
   };

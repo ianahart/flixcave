@@ -1,0 +1,98 @@
+.container {
+  min-height: 100vh;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.filterBox {
+  border: 1px solid #e1e1e8;
+}
+
+.resources {
+  flex-grow: 2;
+  padding: 1rem;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.resource {
+  justify-self: center;
+  min-height: 280px;
+  svg {
+    width: 120px;
+    height: 200px;
+  }
+  img {
+    width: 120px;
+    height: 200px;
+    border-radius: var(--border-radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.content {
+  position: relative;
+  width: 120px;
+  color: var(--main-text);
+  margin: 0 auto;
+  border: 1px solid #e1e1e8;
+  border-top: none;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  p {
+    &:first-of-type {
+      margin: -3px;
+    }
+  }
+}
+
+.loadMore {
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: center;
+  button {
+    background: var(--main-teal);
+    color: #fff;
+    padding: 0.2rem;
+    height: 35px;
+    border: none;
+    border-radius: var(--border-radius);
+    width: 300px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.progressCircle {
+  position: absolute;
+  top: -45px;
+  left: -20px;
+  svg {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 864px) {
+  .resources {
+    grid-template-columns: 1fr 1fr;
+  }
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .filterBox {
+    margin-top: 1rem;
+    justify-self: center;
+    width: 400px;
+    min-height: 400px;
+  }
+}

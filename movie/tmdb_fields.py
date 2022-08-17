@@ -8,6 +8,17 @@ person_fields = [
 ]
 
 
+resource_fields = [
+    'id',
+    'backdrop_path',
+    'original_title',
+    'original_name',
+    'release_date',
+    'vote_average',
+
+]
+
+
 movie_fields = [
     'backdrop_path',
     'budget',

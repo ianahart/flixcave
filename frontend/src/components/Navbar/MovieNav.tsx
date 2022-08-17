@@ -7,10 +7,10 @@ export default function MovieNav() {
       style={{ marginRight: 'auto' }}
       className={`${navBarStyles.desktopList} ${navBarStyles.list}`}
     >
-      <NavListItem subListItems={movies} label="Movies" />
-      <NavListItem subListItems={tvShows} label="Tv Shows" />
-      <NavListItem subListItems={people} label="People" />
-      <NavListItem subListItems={discussions} label="Discussions" />
+      <NavListItem link="movies" subListItems={movies} label="Movies" />
+      <NavListItem link="tv" subListItems={tvShows} label="Tv Shows" />
+      <NavListItem link="people" subListItems={people} label="People" />
+      <NavListItem link="discussions" subListItems={discussions} label="Discussions" />
     </ul>
   );
 }

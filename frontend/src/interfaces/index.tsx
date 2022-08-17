@@ -1,6 +1,7 @@
 export interface ISubNavListItem {
   id: number;
   text: string;
+  link: string;
 }
 
 export interface IGenre {
@@ -15,6 +16,22 @@ export interface IFavorite {
   title: string;
   type: string;
   user_id: number;
+}
+
+export interface IResource {
+  backdrop_path: string;
+  id: number;
+  original_title?: string;
+  original_name?: string;
+  vote_average: number;
+  vote_percent: number;
+  release_date: string;
+}
+
+export interface IResourcesResponse {
+  message?: string;
+  page: number;
+  resources: IResource[];
 }
 
 export interface IGetFavoritesResponse {

@@ -24,6 +24,11 @@ import Lists from './pages/Auth/Lists';
 import List from './pages/Auth/List';
 import Favorites from './pages/Auth/Favorites';
 import WatchList from './pages/Auth/WatchList';
+import MoviePopular from './pages/Links/Movies/Popular';
+import TvPopular from './pages/Links/Tv/Popular';
+import TvTopRated from './pages/Links/Tv/TopRated';
+import MovieTopRated from './pages/Links/Movies/TopRated';
+import MovieNowPlaying from './pages/Links/Movies/NowPlaying';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -53,6 +58,11 @@ function App() {
             <WithAxios>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/movies/popular" element={<MoviePopular />} />
+                <Route path="/movies/top-rated" element={<MovieTopRated />} />
+                <Route path="/movies/now-playing" element={<MovieNowPlaying />} />
+                <Route path="/tv/popular" element={<TvPopular />} />
+                <Route path="/tv/top-rated" element={<TvTopRated />} />
                 <Route
                   path="/join"
                   element={

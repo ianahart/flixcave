@@ -1,12 +1,38 @@
 from collections.abc import Sequence
 import logging
 from core import settings
-from movie.tmdb_fields import movie_fields, tv_fields, collection_fields, person_fields
+from movie.tmdb_fields import movie_fields, tv_fields, collection_fields, person_fields, resource_fields
 import requests
 logger = logging.getLogger('django')
 
 
 class TMDB():
+
+    def get_resources(self, main_path: str, page: int):
+        try:
+            response = requests.get(
+                f'{settings.TMDB_BASE_URL}{main_path}?api_key={settings.TMDB_API_KEY}&page={page}'
+            )
+
+            resources = []
+            data = response.json()
+            for item in data['results']:
+                details = {}
+                for key, value in item.items():
+                    if key in resource_fields:
+                        if key == 'vote_average':
+                            vote_percent = int(value * 10)
+                            details['vote_percent'] = vote_percent
+                        details[key] = value
+                resources.append(details)
+            return {
+
+                'page': int(page) + 1,
+                'resources': resources,
+            }
+
+        except Exception:
+            logger.error('Unable to fetch resources from TMDB.')
 
     def person_details(self, id: int):
         try:
