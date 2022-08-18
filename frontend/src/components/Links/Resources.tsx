@@ -8,6 +8,9 @@ import { IResource, IResourcesResponse } from '../../interfaces';
 import { Link as RouterLink } from 'react-router-dom';
 import ProgressCircle from '../Details/ProgressCircle';
 import { BsFileImage } from 'react-icons/bs';
+import SortBox from './SortBox';
+import { sortBy } from 'lodash';
+import { nanoid } from 'nanoid';
 
 interface IResourcesProps {
   mainLink: string;
@@ -19,12 +22,14 @@ const Resources = ({ mainLink, filterLink, details }: IResourcesProps) => {
   const [resources, setResources] = useState<IResource[]>([]);
   const [page, setPage] = useState(1);
   const [loaded, setLoaded] = useState(false);
+  const [sort, setSort] = useState('');
+  const resetPage = () => setPage(1);
+  const resetResources = () => setResources([]);
 
   const fetchResources = async (endpoint: string) => {
     try {
       setLoaded(false);
       const response = await http.get<IResourcesResponse>(endpoint);
-      console.log(response);
       setResources((prevState) => [...prevState, ...response.data.resources]);
       setPage(response.data.page);
 
@@ -41,16 +46,40 @@ const Resources = ({ mainLink, filterLink, details }: IResourcesProps) => {
     fetchResources(`/resources/tmdb/?main_link=${mainLink}&page=${page}`);
   });
 
+  const handleSort = async (sort: string, link: string) => {
+    try {
+      setSort(sort);
+      const response = await http.get<IResourcesResponse>(
+        `resources/tmdb/sorted/?sort_by=${sort}&link=${link}&page=${page}`
+      );
+      console.log(response);
+      setPage(response.data.page);
+      setResources((prevState) => [...prevState, ...response.data.resources]);
+      console.log(sort, link);
+    } catch (err: unknown | AxiosError) {
+      if (err instanceof AxiosError && err.response) {
+        console.log(err.response);
+      }
+    }
+  };
+
   return (
     <div className={resourceStyles.container}>
       <div className={resourceStyles.row}>
-        <div className={resourceStyles.filterBox}></div>
+        <div className={resourceStyles.searchSettings}>
+          <SortBox
+            resetPage={resetPage}
+            resetResources={resetResources}
+            filterLink={filterLink}
+            handleSort={handleSort}
+          />
+        </div>
         <div>
           <div className={resourceStyles.resources}>
             {!loaded && <img src={spinnerImg} alt="spinner" />}
             {resources.map((resource) => {
               return (
-                <div className={resourceStyles.resource} key={resource.id}>
+                <div className={resourceStyles.resource} key={nanoid()}>
                   <RouterLink to={`/${details}/${resource.id}`}>
                     {resource.backdrop_path === null ? (
                       <BsFileImage />
@@ -75,15 +104,21 @@ const Resources = ({ mainLink, filterLink, details }: IResourcesProps) => {
               );
             })}
           </div>
-          <div className={resourceStyles.loadMore}>
-            <button
-              onClick={() =>
-                fetchResources(`/resources/tmdb/?main_link=${mainLink}&page=${page}`)
-              }
-            >
-              Load more
-            </button>
-          </div>
+          {resources.length > 0 && (
+            <div className={resourceStyles.loadMore}>
+              {sort.length > 0 ? (
+                <button onClick={() => handleSort(sort, filterLink)}>See more</button>
+              ) : (
+                <button
+                  onClick={() =>
+                    fetchResources(`/resources/tmdb/?main_link=${mainLink}&page=${page}`)
+                  }
+                >
+                  See more
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

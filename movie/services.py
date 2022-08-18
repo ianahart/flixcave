@@ -8,23 +8,42 @@ logger = logging.getLogger('django')
 
 class TMDB():
 
+    def sorted_resources(self, main_path: str, page: int, sort_by: str):
+        print(main_path, page, sort_by)
+        response = requests.get(
+            f'{settings.TMDB_BASE_URL}/{main_path}?api_key={settings.TMDB_API_KEY}&page={page}&language=en-US&sort_by={sort_by}'
+        )
+
+        data = response.json()
+        resources = self.prepare_resources(data)
+        return {
+
+            'page': int(page) + 1,
+            'resources': resources,
+        }
+
+    def prepare_resources(self, data):
+        resources = []
+        for item in data['results']:
+            details = {}
+            for key, value in item.items():
+                if key in resource_fields:
+                    if key == 'vote_average':
+                        vote_percent = int(value * 10)
+                        details['vote_percent'] = vote_percent
+                    details[key] = value
+            resources.append(details)
+
+        return resources
+
     def get_resources(self, main_path: str, page: int):
         try:
             response = requests.get(
                 f'{settings.TMDB_BASE_URL}{main_path}?api_key={settings.TMDB_API_KEY}&page={page}'
             )
 
-            resources = []
             data = response.json()
-            for item in data['results']:
-                details = {}
-                for key, value in item.items():
-                    if key in resource_fields:
-                        if key == 'vote_average':
-                            vote_percent = int(value * 10)
-                            details['vote_percent'] = vote_percent
-                        details[key] = value
-                resources.append(details)
+            resources = self.prepare_resources(data)
             return {
 
                 'page': int(page) + 1,

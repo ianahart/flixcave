@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('resources/tmdb/', views.TMDBResourcesAPIView.as_view()),
+    path('resources/tmdb/sorted/', views.TMDBSortResourcesAPIView.as_view()),
     path('search/tmdb/', views.MountedSearchAPIView.as_view()),
     path('search/tmdb/<str:param>/', views.SearchAPIView.as_view()),
     path('movies/tmdb/details/<int:id>/',

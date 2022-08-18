@@ -7,8 +7,9 @@
   grid-template-columns: 300px 1fr;
 }
 
-.filterBox {
-  border: 1px solid #e1e1e8;
+.searchSettings {
+  display: flex;
+  justify-content: center;
 }
 
 .resources {
@@ -89,7 +90,7 @@
     grid-template-columns: 1fr;
   }
 
-  .filterBox {
+  .searchSettings {
     margin-top: 1rem;
     justify-self: center;
     width: 400px;
