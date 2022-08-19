@@ -9,6 +9,21 @@ from movie.services import tmdb
 from watchlist.models import WatchList
 
 
+class TMDBPersonAPIView(APIView):
+    permission_classes = [AllowAny, ]
+
+    def get(self, request):
+        try:
+
+            results = tmdb.fetch_people(request.query_params['page'])
+            return Response(results, status=status.HTTP_200_OK)
+
+        except NotFound:
+            return Response({
+                'errors': {}
+            }, status=status.HTTP_404_NOT_FOUND)
+
+
 class TMDBGenresAPIView(APIView):
     permission_classes = [AllowAny, ]
 

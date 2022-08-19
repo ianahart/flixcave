@@ -8,6 +8,21 @@ logger = logging.getLogger('django')
 
 class TMDB():
 
+    def fetch_people(self, page: int):
+        response = requests.get(
+            f'{settings.TMDB_BASE_URL}/person/popular?api_key={settings.TMDB_API_KEY}&page={page}'
+        )
+
+        data = response.json()
+        return {
+
+            'page': int(page) + 1,
+            'total_pages': data['total_pages'],
+            'people': data['results'],
+        }
+
+        return
+
     def fetch_genres(self, link: str):
         response = requests.get(
             f'{settings.TMDB_BASE_URL}/{link}?api_key={settings.TMDB_API_KEY}'

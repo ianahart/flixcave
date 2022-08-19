@@ -17,7 +17,6 @@ const PersonDetails = () => {
       const response = await http.get<IPersonDetailsResponse>(
         `/persons/tmdb/details/${params.id}/`
       );
-      console.log(response);
       setDetails(response.data.person_details);
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {

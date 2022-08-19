@@ -27,6 +27,7 @@
 }
 
 .overview {
+  width: 650px;
   p {
     line-height: 1.6;
   }
@@ -36,5 +37,14 @@
   margin-top: 3rem;
   span {
     color: silver;
+  }
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+  .overview {
+    width: 80%;
   }
 }

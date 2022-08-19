@@ -3,6 +3,7 @@ from . import views
 urlpatterns = [
     path('resources/tmdb/', views.TMDBResourcesAPIView.as_view()),
     path('resources/tmdb/sorted/', views.TMDBSortResourcesAPIView.as_view()),
+    path('persons/tmdb/', views.TMDBPersonAPIView.as_view()),
     path('resources/tmdb/genres/', views.TMDBGenresAPIView.as_view()),
     path('resources/tmdb/filtered/', views.TMDBFilterResourcesAPIView.as_view()),
     path('search/tmdb/', views.MountedSearchAPIView.as_view()),

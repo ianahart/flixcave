@@ -1,0 +1,50 @@
+.container {
+  min-height: 100vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.person {
+  justify-self: center;
+  margin: 1rem 0;
+  img {
+    width: 120px;
+    height: 200px;
+  }
+  p {
+    color: var(--main-text);
+    width: 120px;
+    word-break: all;
+    border: 1px solid #e7e7f0;
+    padding: 0.25rem;
+    border-top: none;
+  }
+}
+
+.loadMore {
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: center;
+  button {
+    background: var(--main-teal);
+    color: #fff;
+    padding: 0.2rem;
+    height: 35px;
+    border: none;
+    border-radius: var(--border-radius);
+    width: 300px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
