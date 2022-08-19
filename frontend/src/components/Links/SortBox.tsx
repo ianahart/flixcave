@@ -41,8 +41,8 @@ const SortBox = ({
               <option value="original_title.desc">Title(Z-A) descending</option>
               <option value="popularity.asc">Popularity ascending</option>
               <option value="popularity.desc">Popularity descending</option>
-              <option value="vote_average.asc">Rating ascending</option>
-              <option value="vote_average.desc">Rating descending</option>
+              <option value="vote_count.asc">Rating ascending</option>
+              <option value="vote_count.desc">Rating descending</option>
             </Select>
           </div>
         )}

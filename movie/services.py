@@ -8,8 +8,21 @@ logger = logging.getLogger('django')
 
 class TMDB():
 
+    def filtered_resources(self, main_link, page, with_runtime_lte, with_runtime_gte, vote_average_lte, vote_average_gte):
+
+        response = requests.get(
+            f'{settings.TMDB_BASE_URL}/{main_link[1]}?api_key={settings.TMDB_API_KEY}&page={page[1]}&language=en-US&with_runtime.lte={with_runtime_lte[1]}&with_runtime.gte={with_runtime_gte[1]}&vote_average.lte={vote_average_lte[1]}&vote_average.gte={vote_average_gte[1]}'
+        )
+
+        data = response.json()
+        resources = self.prepare_resources(data)
+        return {
+
+            'page': int(page[1]) + 1,
+            'resources': resources,
+        }
+
     def sorted_resources(self, main_path: str, page: int, sort_by: str):
-        print(main_path, page, sort_by)
         response = requests.get(
             f'{settings.TMDB_BASE_URL}/{main_path}?api_key={settings.TMDB_API_KEY}&page={page}&language=en-US&sort_by={sort_by}'
         )

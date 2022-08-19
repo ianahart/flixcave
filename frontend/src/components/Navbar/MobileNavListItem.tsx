@@ -1,14 +1,17 @@
 import { MouseEvent } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { ISubNavListItem } from '../../interfaces/index';
 import mobileNavListItemStyles from '../../styles/navbar/MobileNavListItem.module.scss';
 
 interface IMobileNavListItemProps {
   label: string;
+  link: string;
   subListItems: ISubNavListItem[];
   closeOnLink: (e: MouseEvent<HTMLLIElement>) => void;
 }
 
 export default function MobileNavListItem({
+  link,
   label,
   subListItems,
   closeOnLink,
@@ -19,9 +22,9 @@ export default function MobileNavListItem({
       <ul>
         {subListItems?.map((subListItem) => {
           return (
-            <li onClick={closeOnLink} key={subListItem.id}>
-              {subListItem.text}
-            </li>
+            <RouterLink key={subListItem.id} to={`/${link}${subListItem.link}`}>
+              <li>{subListItem.text}</li>
+            </RouterLink>
           );
         })}
       </ul>

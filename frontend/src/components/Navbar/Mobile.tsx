@@ -65,21 +65,25 @@ export default function Mobile({ handleSetMobileMenuOpen }: IMobileProps) {
           closeOnLink={closeOnLink}
           subListItems={movies}
           label="Movies"
+          link="movies"
         />
         <MobileNavListItem
           closeOnLink={closeOnLink}
           subListItems={tvShows}
           label="Tv Shows"
+          link="tv"
         />
         <MobileNavListItem
           closeOnLink={closeOnLink}
           subListItems={people}
           label="People"
+          link="person"
         />
         <MobileNavListItem
           closeOnLink={closeOnLink}
           subListItems={discussions}
           label="Discussions"
+          link=""
         />
       </div>
     </div>
