@@ -9,15 +9,35 @@ from movie.services import tmdb
 from watchlist.models import WatchList
 
 
+class TMDBGenresAPIView(APIView):
+    permission_classes = [AllowAny, ]
+
+    def get(self, request):
+        try:
+            if 'link' not in request.query_params:
+                raise NotFound
+
+            genres = tmdb.fetch_genres(request.query_params['link'])
+            return Response({
+                'message': 'success',
+                'genres': genres,
+            }, status=status.HTTP_200_OK)
+
+        except NotFound:
+            return Response({
+                'errors': {}
+            }, status=status.HTTP_404_NOT_FOUND)
+
+
 class TMDBFilterResourcesAPIView(APIView):
     permission_classes = [AllowAny, ]
 
     def get(self, request):
         try:
-            main_link, page, with_runtime_lte, with_runtime_gte, vote_average_lte, vote_average_gte = list(
+            genre, main_link, page, with_runtime_lte, with_runtime_gte, vote_average_lte, vote_average_gte = list(
                 request.query_params.items())
             results = tmdb.filtered_resources(
-                main_link, page,
+                genre, main_link, page,
                 with_runtime_lte, with_runtime_gte, vote_average_lte, vote_average_gte)
             if results:
                 return Response({

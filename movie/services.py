@@ -8,10 +8,19 @@ logger = logging.getLogger('django')
 
 class TMDB():
 
-    def filtered_resources(self, main_link, page, with_runtime_lte, with_runtime_gte, vote_average_lte, vote_average_gte):
+    def fetch_genres(self, link: str):
+        response = requests.get(
+            f'{settings.TMDB_BASE_URL}/{link}?api_key={settings.TMDB_API_KEY}'
+        )
+
+        data = response.json()
+        if data:
+            return data['genres']
+
+    def filtered_resources(self, genre, main_link, page, with_runtime_lte, with_runtime_gte, vote_average_lte, vote_average_gte):
 
         response = requests.get(
-            f'{settings.TMDB_BASE_URL}/{main_link[1]}?api_key={settings.TMDB_API_KEY}&page={page[1]}&language=en-US&with_runtime.lte={with_runtime_lte[1]}&with_runtime.gte={with_runtime_gte[1]}&vote_average.lte={vote_average_lte[1]}&vote_average.gte={vote_average_gte[1]}'
+            f'{settings.TMDB_BASE_URL}/{main_link[1]}?api_key={settings.TMDB_API_KEY}&with_genres={genre[1]}&page={page[1]}&language=en-US&with_runtime.lte={with_runtime_lte[1]}&with_runtime.gte={with_runtime_gte[1]}&vote_average.lte={vote_average_lte[1]}&vote_average.gte={vote_average_gte[1]}'
         )
 
         data = response.json()

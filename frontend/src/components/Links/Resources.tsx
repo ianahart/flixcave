@@ -7,7 +7,7 @@ import { http } from '../../helpers/utils';
 import { useEffectOnce } from '../../hooks/UseEffectOnce';
 import resourceStyles from '../../styles/links/movies/Resources.module.scss';
 import spinnerImg from '../../images/spinner.svg';
-import { IResource, IResourcesResponse } from '../../interfaces';
+import { IResource, IResourcesResponse, IGenre, IGenresResponse } from '../../interfaces';
 import ProgressCircle from '../Details/ProgressCircle';
 import SortBox from './SortBox';
 import FilterBox from './FilterBox';
@@ -23,9 +23,12 @@ const Resources = ({ mainLink, filterLink, details }: IResourcesProps) => {
   const [page, setPage] = useState(1);
   const [loaded, setLoaded] = useState(false);
   const [sort, setSort] = useState('');
+  const [genres, setGenres] = useState<IGenre[]>([]);
   const [runTimeRange, setRunTimeRange] = useState([60, 360]);
   const [voteRange, setVoteRange] = useState([1, 10]);
   const [filterOn, setFilterOn] = useState(false);
+  const [activeGenre, setActiveGenre] = useState<string | number>('');
+  const genreLink = details.includes('movie') ? '/genre/movie/list' : '/genre/tv/list';
 
   const resetPage = () => setPage(1);
   const resetResources = () => setResources([]);
@@ -47,6 +50,12 @@ const Resources = ({ mainLink, filterLink, details }: IResourcesProps) => {
     }
   };
 
+  const handleSetGenre = (genreId: number) => {
+    setActiveGenre(genreId);
+    resetPage();
+    resetResources();
+  };
+
   const fetchResources = async (endpoint: string) => {
     try {
       setLoaded(false);
@@ -63,8 +72,22 @@ const Resources = ({ mainLink, filterLink, details }: IResourcesProps) => {
     }
   };
 
+  const fetchGenres = async () => {
+    try {
+      const response = await http.get<IGenresResponse>(
+        `/resources/tmdb/genres/?link=${genreLink}`
+      );
+      setGenres(response.data.genres);
+    } catch (err: unknown | AxiosError) {
+      if (err instanceof AxiosError && err.response) {
+        console.log(err.response);
+      }
+    }
+  };
+
   useEffectOnce(() => {
     fetchResources(`/resources/tmdb/?main_link=${mainLink}&page=${page}`);
+    fetchGenres();
   });
 
   const handleSort = async (sort: string, link: string) => {
@@ -89,8 +112,8 @@ const Resources = ({ mainLink, filterLink, details }: IResourcesProps) => {
   const handleFilter = async (runTimeRange: number[], voteRange: number[]) => {
     try {
       setLoaded(false);
-      const response = await http.get(
-        `/resources/tmdb/filtered/?main_path=${filterLink}&page=${page}&with_runtime.lte=${runTimeRange[1]}&with_runtime.gte=${runTimeRange[0]}&vote_average.lte=${voteRange[1]}&vote_average.gte=${voteRange[0]}`
+      const response = await http.get<IResourcesResponse>(
+        `/resources/tmdb/filtered/?with_genres=${activeGenre}&main_path=${filterLink}&page=${page}&with_runtime.lte=${runTimeRange[1]}&with_runtime.gte=${runTimeRange[0]}&vote_average.lte=${voteRange[1]}&vote_average.gte=${voteRange[0]}`
       );
 
       setPage(response.data.page);
@@ -114,7 +137,7 @@ const Resources = ({ mainLink, filterLink, details }: IResourcesProps) => {
         <button
           onClick={() =>
             fetchResources(
-              `/resources/tmdb/filtered/?main_path=${filterLink}&page=${page}&with_runtime.lte=${runTimeRange[1]}&with_runtime.gte=${runTimeRange[0]}&vote_average.lte=${voteRange[1]}&vote_average.gte=${voteRange[0]}`
+              `/resources/tmdb/filtered/?with_genres=${activeGenre}&main_path=${filterLink}&page=${page}&with_runtime.lte=${runTimeRange[1]}&with_runtime.gte=${runTimeRange[0]}&vote_average.lte=${voteRange[1]}&vote_average.gte=${voteRange[0]}`
             )
           }
         >
@@ -146,11 +169,14 @@ const Resources = ({ mainLink, filterLink, details }: IResourcesProps) => {
             handleSort={handleSort}
           />
           <FilterBox
+            activeGenre={activeGenre}
             handleFilter={handleFilter}
             runTimeRange={runTimeRange}
             voteRange={voteRange}
             handleSetRunTime={handleSetRunTime}
             handleSetVoteRange={handleSetVoteRange}
+            genres={genres}
+            handleSetGenre={handleSetGenre}
           />
         </div>
         <div>

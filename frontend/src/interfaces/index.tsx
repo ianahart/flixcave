@@ -9,6 +9,11 @@ export interface IGenre {
   name: string;
 }
 
+export interface IGenresResponse {
+  message?: string;
+  genres: IGenre[];
+}
+
 export interface IFavorite {
   backdrop_path: string;
   id: number;

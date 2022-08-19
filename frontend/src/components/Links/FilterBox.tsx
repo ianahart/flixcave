@@ -7,20 +7,27 @@ import {
   RangeSliderFilledTrack,
   RangeSliderThumb,
 } from '@chakra-ui/react';
+import { IGenre } from '../../interfaces';
 
 interface IFilterBoxProps {
-  handleFilter: (runTimeRange: number[], voteRange: number[]) => void;
   runTimeRange: number[];
   voteRange: number[];
+  genres: IGenre[];
+  activeGenre: string | number;
+  handleFilter: (runTimeRange: number[], voteRange: number[]) => void;
   handleSetRunTime: (runTimeRange: number[]) => void;
   handleSetVoteRange: (voteRange: number[]) => void;
+  handleSetGenre: (id: number) => void;
 }
 const FilterBox = ({
   handleFilter,
   runTimeRange,
   voteRange,
+  activeGenre,
   handleSetRunTime,
   handleSetVoteRange,
+  genres,
+  handleSetGenre,
 }: IFilterBoxProps) => {
   const [sortOpen, setSortOpen] = useState(false);
 
@@ -85,6 +92,26 @@ const FilterBox = ({
                   <RangeSliderThumb boxSize={6} index={0} />
                   <RangeSliderThumb boxSize={6} index={1} />
                 </RangeSlider>
+              </div>
+              <div className={filterBoxStyles.genresContainer}>
+                <h4>Genres</h4>
+                <div className={filterBoxStyles.genreContent}>
+                  {genres.map((genre) => {
+                    return (
+                      <div
+                        onClick={() => handleSetGenre(genre.id)}
+                        className={`${filterBoxStyles.genre} ${
+                          activeGenre === genre.id
+                            ? filterBoxStyles.genreActive
+                            : filterBoxStyles.genreNotActive
+                        }`}
+                        key={genre.id}
+                      >
+                        <p>{genre.name}</p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
