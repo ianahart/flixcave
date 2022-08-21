@@ -76,6 +76,7 @@ export interface IPersonDetails {
   biography: string;
   place_of_birth: string;
   profile_path: string;
+  known_for: any;
 }
 
 export interface IList {

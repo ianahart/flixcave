@@ -12,6 +12,7 @@ const PersonDetails = () => {
   const params = useParams();
   const [details, setDetails] = useState<IPersonDetails>(personDetailsState);
 
+  console.log(details);
   const fetchCollectionDetails = async () => {
     try {
       const response = await http.get<IPersonDetailsResponse>(

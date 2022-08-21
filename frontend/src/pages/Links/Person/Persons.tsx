@@ -17,7 +17,7 @@ const Person = () => {
       setTotalPages(response.data.total_pages);
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
-        console.log(err.response);
+        return;
       }
     }
   };

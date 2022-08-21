@@ -5,6 +5,7 @@ person_fields = [
     'biography',
     'place_of_birth',
     'profile_path',
+    'known_for',
 ]
 
 

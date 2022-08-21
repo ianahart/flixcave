@@ -17,6 +17,7 @@ export const personDetailsState = {
   biography: '',
   place_of_birth: '',
   profile_path: '',
+  known_for: [],
 };
 
 export const collectionDetailsState = {
