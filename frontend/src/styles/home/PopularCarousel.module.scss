@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  position: relative;
+  max-width: 1200px;
+  box-shadow: var(--box-shadow);
+}
+
+@keyframes slideleft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideright {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.slideRight {
+  animation-name: slideright;
+  animation-duration: 0.3s;
+}
+
+.slideLeft {
+  animation-name: slideleft;
+  animation-duration: 0.3s;
+}
+
+.activeResource {
+  position: relative;
+  transition: all 0.3s ease-out;
+  img {
+    width: 250px;
+    height: 100px;
+  }
+}
+
+.leftArrow {
+  position: absolute;
+  left: 0;
+  top: 30px;
+  font-size: 28px;
+  color: #fff;
+  z-index: 2;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+}
+
+.rightArrow {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: var(--box-shadow);
+}
+
+.overlay {
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}

@@ -1,3 +1,21 @@
 .container {
   min-height: 100vh;
 }
+
+.carousel {
+  margin-top: 8rem;
+  margin-left: 3rem;
+  margin-right: 1rem;
+
+  h3 {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    color: var(--main-text);
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    margin-left: 0;
+  }
+}
