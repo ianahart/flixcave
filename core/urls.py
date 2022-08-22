@@ -9,5 +9,6 @@ urlpatterns = [
     path('api/v1/', include(('list.urls', 'list'))),
     path('api/v1/', include(('favorite.urls', 'favorite'))),
     path('api/v1/', include(('watchlist.urls', 'watchlist'))),
+    path('api/v1/', include(('review.urls', 'review'))),
 
 ]

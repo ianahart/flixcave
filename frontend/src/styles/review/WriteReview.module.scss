@@ -6,13 +6,75 @@
   border-radius: var(--border-radius);
 }
 
-.header {
+.errors {
+  margin-top: 1rem;
+  text-align: center;
+  p {
+    font-size: 0.9rem;
+    color: red;
+  }
+}
+
+.starTitle {
+  display: flex;
+
+  svg {
+    font-size: 1.5rem;
+    color: orange;
+    margin-left: 0.5rem;
+  }
+  p {
+    color: var(--main-text);
+  }
+  h3 {
+    padding: 0.5rem;
+    color: var(--main-text);
+    font-size: 1.1rem;
+  }
+}
+
+.starRow {
+  display: flex;
+  align-items: center;
+}
+
+.stars {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.star {
+  font-size: 28px;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.body {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
-  h1 {
-    font-size: 2rem;
-    color: var(--main-text);
+  textarea {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    resize: none;
+    width: 90%;
+    height: 200px;
+    margin-top: 1.5rem;
+  }
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  background: var(--main-teal);
+  width: 120px;
+  margin: 2rem auto 1rem auto;
+  color: #fff;
+  height: 35px;
+  border-radius: var(--border-radius);
+  transition: all 0.25s ease-out;
+  &:hover {
+    opacity: 0.8;
   }
 }
 
