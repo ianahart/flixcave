@@ -79,7 +79,7 @@ const PopularCarousel = ({ link }: IPopularCarouselProps) => {
         }  `}
       >
         <img
-          src={`https://image.tmdb.org/t/p/original${activeResource.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w500${activeResource.backdrop_path}`}
           alt={activeResource.original_title}
         />
         {hovered && (

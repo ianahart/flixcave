@@ -17,7 +17,7 @@ const Movies = () => {
                   <div>
                     {collection.poster_path && (
                       <img
-                        src={`https://image.tmdb.org/t/p/original/${collection.poster_path}`}
+                        src={`https://image.tmdb.org/t/p/w500/${collection.poster_path}`}
                       />
                     )}
                   </div>

@@ -190,7 +190,7 @@ const Resources = ({ mainLink, filterLink, details }: IResourcesProps) => {
                       <BsFileImage />
                     ) : (
                       <img
-                        src={`https://image.tmdb.org/t/p/original/${resource.backdrop_path}`}
+                        src={`https://image.tmdb.org/t/p/w500/${resource.backdrop_path}`}
                         alt="movie poster"
                       />
                     )}
