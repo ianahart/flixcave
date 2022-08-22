@@ -5,12 +5,33 @@ from rest_framework.response import Response
 from rest_framework.exceptions import NotFound, ParseError
 
 from account.permissions import AccountPermission
-from review.serializers import CreateReviewSerializer
+from review.serializers import CreateReviewSerializer, ReviewSerializer
 from review.models import Review
 
 
 class ListCreateAPIView(APIView):
     permission_classes = [IsAuthenticated, ]
+
+    def get(self, request):
+        try:
+
+            page, direction = request.query_params.values()
+            results = Review.objects.fetch_reviews(
+                old_page=page, direction=direction)
+
+            if results:
+                serializer = ReviewSerializer(results['reviews'], many=True)
+                return Response({
+                    'message': 'success',
+                    'reviews': serializer.data,
+                    'page': results['page'],
+                    'has_next': results['has_next'],
+                }, status=status.HTTP_200_OK)
+
+        except NotFound:
+            return Response({
+                'errors': {}
+            }, status=status.HTTP_404_NOT_FOUND)
 
     def post(self, request):
         try:
@@ -22,8 +43,8 @@ class ListCreateAPIView(APIView):
 
             if exists is not None:
                 return Response({
-                                    'error': exists['error']
-                                }, status=status.HTTP_409_CONFLICT)
+                    'error': exists['error']
+                }, status=status.HTTP_409_CONFLICT)
 
             return Response({
                 'message': 'success',

@@ -31,6 +31,7 @@ import MovieTopRated from './pages/Links/Movies/TopRated';
 import MovieNowPlaying from './pages/Links/Movies/NowPlaying';
 import PopularPeoples from './pages/Links/Person/Persons';
 import WriteReview from './pages/Auth/WriteReview';
+import Reviews from './pages/Reviews';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -66,6 +67,7 @@ function App() {
                 <Route path="/tv/popular" element={<TvPopular />} />
                 <Route path="/tv/top-rated" element={<TvTopRated />} />
                 <Route path="/people/popular" element={<PopularPeoples />} />
+                <Route path="/discussions/reviews" element={<Reviews />} />
                 <Route
                   path="/join"
                   element={

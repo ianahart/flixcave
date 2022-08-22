@@ -1,0 +1,42 @@
+.container {
+  min-height: 100vh;
+}
+
+.header {
+  background-image: url('../../images/reviews.svg');
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    border-bottom: 10px solid var(--main-orange);
+  }
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+
+  button {
+    color: var(--main-blue);
+    margin: 1rem;
+    cursor: pointer;
+  }
+  p {
+    margin: 1rem;
+  }
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

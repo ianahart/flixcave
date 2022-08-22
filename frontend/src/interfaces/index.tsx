@@ -262,3 +262,27 @@ export interface ILoginResponse {
   user: IUser;
   tokens: ITokens;
 }
+
+export interface IReviewsResponse {
+  message?: string;
+  has_next: boolean;
+  page: number;
+  reviews: IReview[];
+}
+
+export interface IReview {
+  backdrop_path: string;
+  body: string;
+  name: string;
+  rating: number;
+  resource_id: number;
+  user: MinUser;
+  id: number;
+}
+
+export interface MinUser {
+  first_name: string;
+  last_name: string;
+  initials: string;
+  id: number;
+}

@@ -18,3 +18,13 @@ class UserSerializer(serializers.ModelSerializer):
                   'member_since',
                   )
         extra_kwargs = {'password': {'write_only': True}}
+
+
+class MinUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ('first_name',
+                  'last_name',
+                  'id',
+                  'initials',
+                  )
