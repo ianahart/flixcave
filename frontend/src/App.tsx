@@ -30,6 +30,7 @@ import TvTopRated from './pages/Links/Tv/TopRated';
 import MovieTopRated from './pages/Links/Movies/TopRated';
 import MovieNowPlaying from './pages/Links/Movies/NowPlaying';
 import PopularPeoples from './pages/Links/Person/Persons';
+import WriteReview from './pages/Auth/WriteReview';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -87,6 +88,15 @@ function App() {
                   element={
                     <RequireAuth>
                       <Lists />
+                    </RequireAuth>
+                  }
+                />
+
+                <Route
+                  path="/write-review"
+                  element={
+                    <RequireAuth>
+                      <WriteReview />
                     </RequireAuth>
                   }
                 />

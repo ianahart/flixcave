@@ -6,7 +6,7 @@ import {
   AiOutlineEye,
 } from 'react-icons/ai';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { MdOutlineRateReview } from 'react-icons/md';
 import actionStyles from '../../styles/details/Actions.module.scss';
 import Action from './Action';
@@ -38,6 +38,7 @@ const Actions = ({
   const user = useAppSelector((state) => state.user.value);
   const [modalOpen, setModalOpen] = useState(false);
   const [listError, setListError] = useState('');
+  const reviewState = { name, id, backdropPath };
 
   const handleModalOpen = (isModalOpen: boolean) => {
     setModalOpen(isModalOpen);
@@ -165,7 +166,9 @@ const Actions = ({
           <Action Icon={AiOutlineEye} toolTip="Add to watchlist" />
         </div>
       )}
-      <Action Icon={MdOutlineRateReview} toolTip="Write a review" />
+      <RouterLink to="/write-review" state={reviewState}>
+        <Action Icon={MdOutlineRateReview} toolTip="Write a review" />
+      </RouterLink>
     </div>
   );
 };

@@ -1,0 +1,23 @@
+.container {
+  border: 1px solid var(--border-color);
+  min-height: 600px;
+  width: 500px;
+  margin: 4rem auto 1rem auto;
+  border-radius: var(--border-radius);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  h1 {
+    font-size: 2rem;
+    color: var(--main-text);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+  }
+}
