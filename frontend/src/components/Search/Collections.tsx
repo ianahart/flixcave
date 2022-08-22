@@ -14,13 +14,11 @@ const Movies = () => {
             return (
               <div key={collection.id} className={collectionsStyles.movieContainer}>
                 <RouterLink to={`/collections/${collection.id}`}>
-                  <div>
-                    {collection.poster_path && (
-                      <img
-                        src={`https://image.tmdb.org/t/p/w500/${collection.poster_path}`}
-                      />
-                    )}
-                  </div>
+                  {collection.poster_path && (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500/${collection.poster_path}`}
+                    />
+                  )}
                 </RouterLink>
                 <div className={collectionsStyles.header}>
                   <RouterLink to={`/collections/${collection.id}`}>

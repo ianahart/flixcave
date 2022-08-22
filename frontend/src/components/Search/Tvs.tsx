@@ -15,11 +15,9 @@ const Movies = () => {
             return (
               <div key={tv.id} className={tvStyles.tvContainer}>
                 <RouterLink to={`/tv/${tv.id}`}>
-                  <div>
                     {tv.poster_path && (
                       <img src={`https://image.tmdb.org/t/p/w500/${tv.poster_path}`} />
                     )}
-                  </div>
                 </RouterLink>
                 <div className={tvStyles.header}>
                   <RouterLink to={`/tv-shows/${tv.id}`}>
