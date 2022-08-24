@@ -1,6 +1,6 @@
 .container {
-  border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
+  background: #fbfbfb;
   margin: 2rem auto;
   width: 500px;
   padding: 0.25rem;
@@ -53,6 +53,30 @@
   p {
     color: var(--main-text);
   }
+}
+
+.commentTrigger {
+  margin: 1.5rem auto;
+  border-top: 1px solid #d1d1d7;
+  border-bottom: 1px solid #d1d1d7;
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  color: gray;
+  justify-content: center;
+  cursor: pointer;
+  svg {
+    margin-right: 1rem;
+  }
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 600px) {

@@ -1,15 +1,19 @@
 import { AiFillStar } from 'react-icons/ai';
+import { BiCommentDetail } from 'react-icons/bi';
 import { useState } from 'react';
 import { IReview } from '../../interfaces';
 import reviewStyles from '../../styles/review/Review.module.scss';
+import WriteComment from '../Comment/WriteComment';
 
 interface IReviewProps {
   review: IReview;
 }
 
 const Review = ({ review }: IReviewProps) => {
-  console.log(review);
+  const [isOpen, setIsOpen] = useState(false);
   const [stars, setStars] = useState<number[]>([1, 2, 3, 4, 5]);
+
+  const handleIsOpen = (isOpen: boolean) => setIsOpen(isOpen);
 
   return (
     <div className={reviewStyles.container}>
@@ -40,6 +44,12 @@ const Review = ({ review }: IReviewProps) => {
           <p>{review.body}</p>
         </div>
       </div>
+
+      <div onClick={() => handleIsOpen(true)} className={reviewStyles.commentTrigger}>
+        <BiCommentDetail />
+        <p>Comment</p>
+      </div>
+      <WriteComment isOpen={isOpen} handleIsOpen={handleIsOpen} review={review} />
     </div>
   );
 };
