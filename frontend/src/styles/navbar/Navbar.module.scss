@@ -11,6 +11,32 @@
   margin: 0;
 }
 
+.notificationCount {
+  pointer-events: none;
+  color: #fff;
+  position: absolute;
+  top: -10px;
+  font-weight: bold;
+  left: -10px;
+  background: red;
+  height: 25px;
+  width: 25px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification {
+  position: relative;
+  svg {
+    cursor: pointer;
+    color: #fff;
+    font-size: 28px;
+  }
+}
+
 .list {
   li {
     margin: 0.25rem 1rem;

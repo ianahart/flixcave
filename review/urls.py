@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('reviews/', views.ListCreateAPIView.as_view()),
+    path('reviews/', views.CreateAPIView.as_view()),
+    path('reviews/list/', views.ListAPIView.as_view()),
 ]
-

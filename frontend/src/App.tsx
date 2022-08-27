@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useCallback } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -9,10 +9,10 @@ import Join from './pages/join';
 import Login from './pages/login';
 import Search from './pages/search';
 import { AxiosError } from 'axios';
-import { http, retreiveTokens } from './helpers/utils';
+import { http, parseJWT, retreiveTokens } from './helpers/utils';
 import { saveUser } from './features/userSlice';
 import { useEffectOnce } from './hooks/UseEffectOnce';
-import { useAppDispatch } from './app/hooks';
+import { useAppDispatch, useAppSelector } from './app/hooks';
 import RequireGuest from './components/Mixed/RequireGuest';
 import RequireAuth from './components/Mixed/RequireAuth';
 import WithAxios from './helpers/WithAxios';
@@ -32,9 +32,31 @@ import MovieNowPlaying from './pages/Links/Movies/NowPlaying';
 import PopularPeoples from './pages/Links/Person/Persons';
 import WriteReview from './pages/Auth/WriteReview';
 import Reviews from './pages/Reviews';
+import useWebSocket, { ReadyState } from 'react-use-websocket';
 
 function App() {
   const dispatch = useAppDispatch();
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const [socketUrl, setSocketUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    const tokens = retreiveTokens();
+    if (!tokens) return;
+    const userId = parseJWT(tokens);
+
+    setSocketUrl(
+      `ws://127.0.0.1:8000/ws/notification/${userId}/?token=${
+        retreiveTokens()?.access_token
+      }`
+    );
+  }, [userLoggedIn]);
+
+  const {} = useWebSocket(socketUrl, {
+    share: true,
+    onOpen: () => console.log('opened'),
+    shouldReconnect: (closeEvent) => true,
+  });
+
   const refreshUser = useCallback(async () => {
     try {
       const tokens = retreiveTokens();
@@ -51,6 +73,10 @@ function App() {
   useEffectOnce(() => {
     refreshUser();
   });
+
+  const connectToWS = () => {
+    setUserLoggedIn(true);
+  };
 
   return (
     <div className="App">
@@ -80,7 +106,7 @@ function App() {
                   path="/login"
                   element={
                     <RequireGuest>
-                      <Login />
+                      <Login connectToWS={connectToWS} />
                     </RequireGuest>
                   }
                 />

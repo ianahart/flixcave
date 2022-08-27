@@ -12,7 +12,11 @@ import { useAppDispatch } from '../app/hooks';
 import { saveUser } from '../features/userSlice';
 import { saveTokens } from '../features/tokenSlice';
 
-export default function Login() {
+interface ILoginProps {
+  connectToWS: () => void;
+}
+
+export default function Login({ connectToWS }: ILoginProps) {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
@@ -61,6 +65,7 @@ export default function Login() {
       });
       dispatch(saveUser(response.data.user));
       dispatch(saveTokens(response.data.tokens));
+      connectToWS();
       navigate('/');
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {

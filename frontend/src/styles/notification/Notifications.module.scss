@@ -1,0 +1,75 @@
+.container {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  overflow-y: auto;
+  top: 20px;
+  z-index: 5;
+  left: -250px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background: #fff;
+  padding: 0.25rem;
+
+  h3 {
+    text-align: center;
+    padding: 0.25rem;
+    font-weight: bold;
+    border-bottom: 2px solid var(--main-teal);
+    width: 120px;
+    margin: 0 auto;
+    color: var(--main-text);
+  }
+}
+
+.closeIcon {
+  cursor: pointer;
+  margin-right: 0.25rem;
+  svg {
+    font-size: 1rem;
+  }
+}
+
+.overflowScroll::-webkit-scrollbar {
+  width: 12px;
+}
+
+.overflowScroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background: transparent;
+}
+
+.overflowScroll::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.notification {
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.25rem;
+  display: flex;
+  img {
+    width: 45px;
+    height: 45px;
+    margin-right: 0.25rem;
+  }
+}
+
+.readable_date {
+  font-size: 0.65rem;
+  color: #adacac;
+  text-align: right;
+}
+
+.text {
+  color: var(--main-text);
+  font-size: 0.8rem;
+}
+
+.loadMoreBtn {
+  color: gray;
+  text-align: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+}

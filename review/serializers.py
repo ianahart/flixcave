@@ -6,6 +6,7 @@ from account.serializers import MinUserSerializer
 
 class ReviewSerializer(serializers.ModelSerializer):
     user = MinUserSerializer()
+    total_comments = serializers.IntegerField()
 
     class Meta:
         model = Review
@@ -15,7 +16,8 @@ class ReviewSerializer(serializers.ModelSerializer):
                   'name',
                   'body',
                   'user',
-                  'rating'
+                  'rating',
+                  'total_comments',
                   )
 
 

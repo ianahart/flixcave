@@ -6,6 +6,38 @@
   padding: 0.25rem;
 }
 
+.totalComments {
+  p {
+    color: gray;
+  }
+}
+
+.loadMore {
+  text-align: center;
+  button {
+    color: gray;
+    cursor: pointer;
+
+    transition: all 0.25s ease-out;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.commentsTrigger {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  transition: all 0.25s ease-out;
+  &:hover {
+    opacity: 0.8;
+  }
+  p {
+    color: gray;
+  }
+}
+
 .initials {
   border-radius: 50%;
   background: var(--main-teal);
@@ -52,6 +84,7 @@
 .name {
   p {
     color: var(--main-text);
+    font-weight: bold;
   }
 }
 

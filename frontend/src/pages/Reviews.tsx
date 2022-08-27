@@ -25,7 +25,7 @@ const Reviews = () => {
   };
 
   useEffectOnce(() => {
-    fetchReviews('/reviews/?page=0&direction=next');
+    fetchReviews('/reviews/list/?page=0&direction=next');
   });
 
   return (
@@ -40,13 +40,17 @@ const Reviews = () => {
       </div>
       <div className={reviewsStyles.btnContainer}>
         {page > 1 && (
-          <button onClick={() => fetchReviews(`/reviews/?page=${page}&direction=prev`)}>
+          <button
+            onClick={() => fetchReviews(`/reviews/list/?page=${page}&direction=prev`)}
+          >
             Prev
           </button>
         )}
         <p>{page}</p>
         {hasNext && (
-          <button onClick={() => fetchReviews(`/reviews/?page=${page}&direction=next`)}>
+          <button
+            onClick={() => fetchReviews(`/reviews/list/?page=${page}&direction=next`)}
+          >
             Next
           </button>
         )}

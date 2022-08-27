@@ -278,6 +278,7 @@ export interface IReview {
   resource_id: number;
   user: MinUser;
   id: number;
+  total_comments: number;
 }
 
 export interface MinUser {
@@ -285,4 +286,34 @@ export interface MinUser {
   last_name: string;
   initials: string;
   id: number;
+}
+
+export interface IComment {
+  readable_date: string;
+  text: string;
+  user: MinUser;
+  id: number;
+}
+
+export interface ICommentsResponse {
+  message?: string;
+  comments: IComment[];
+  page: number;
+  has_next: boolean;
+}
+
+export interface INotification {
+  text: string;
+  readable_date: string;
+  user: MinUser;
+  backdrop_path: string;
+  id: number;
+}
+
+export interface INotificationsResponse {
+  message?: string;
+  notifications: INotification[];
+  has_next: boolean;
+  page: number;
+  notifications_count: number;
 }

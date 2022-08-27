@@ -20,7 +20,13 @@ class ReviewManager(models.Manager):
         if new_page is not None:
             new_page_results = paginator.page(new_page)
 
-            reviews = new_page_results.object_list
+            object_list = new_page_results.object_list
+            reviews = []
+
+            for object in object_list:
+                object.total_comments = object.review_comments.all().count()
+
+                reviews.append(object)
 
             return {
                 'reviews': reviews,

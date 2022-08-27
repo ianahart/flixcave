@@ -9,8 +9,8 @@ from review.serializers import CreateReviewSerializer, ReviewSerializer
 from review.models import Review
 
 
-class ListCreateAPIView(APIView):
-    permission_classes = [IsAuthenticated, ]
+class ListAPIView(APIView):
+    permission_classes = [AllowAny, ]
 
     def get(self, request):
         try:
@@ -32,6 +32,10 @@ class ListCreateAPIView(APIView):
             return Response({
                 'errors': {}
             }, status=status.HTTP_404_NOT_FOUND)
+
+
+class CreateAPIView(APIView):
+    permission_classes = [IsAuthenticated, ]
 
     def post(self, request):
         try:

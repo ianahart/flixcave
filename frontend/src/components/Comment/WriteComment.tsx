@@ -1,13 +1,15 @@
-import { useState, MouseEvent, ChangeEvent } from 'react';
+import { useRef, useState, MouseEvent, ChangeEvent } from 'react';
 import data from '@emoji-mart/data';
+import useWebSocket from 'react-use-websocket';
 import { MdOutlineEmojiEmotions } from 'react-icons/md';
 /* @ts-ignore */
 import Picker from '@emoji-mart/react';
+import { useNavigate } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import { IReview } from '../../interfaces';
 import writeCommentStyle from '../../styles/comment/WriteComment.module.scss';
-import { AxiosError } from 'axios';
-import { http } from '../../helpers/utils';
+import { useAppSelector } from '../../app/hooks';
+import { retreiveTokens } from '../../helpers/utils';
 
 interface IWriteCommentProps {
   isOpen: boolean;
@@ -16,12 +18,20 @@ interface IWriteCommentProps {
 }
 
 const WriteComment = ({ isOpen, handleIsOpen, review }: IWriteCommentProps) => {
+  const navigate = useNavigate();
+  const user = useAppSelector((state) => state.user.value);
   const [textArea, setTextArea] = useState('');
   const [emojiPicker, setEmojiPicker] = useState(false);
-
   const handleOnChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setTextArea(e.target.value);
   };
+  const socketUrl = `ws://127.0.0.1:8000/ws/notification/${user.id}/?token=${
+    retreiveTokens()?.access_token
+  }`;
+
+  const { sendJsonMessage } = useWebSocket(socketUrl, {
+    share: true,
+  });
 
   const cancelComment = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -29,17 +39,18 @@ const WriteComment = ({ isOpen, handleIsOpen, review }: IWriteCommentProps) => {
     setTextArea('');
   };
 
-  const writeComment = async (e: MouseEvent<HTMLButtonElement>) => {
-    try {
-      e.stopPropagation();
-      handleIsOpen(false);
-      setTextArea('');
-      const response = await http.post('/comments/', {});
-    } catch (err: unknown | AxiosError) {
-      if (err instanceof AxiosError && err.response) {
-        console.log(err.response);
-      }
+  const writeComment = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+
+    if (user.id === null) {
+      navigate('/login');
     }
+
+    sendJsonMessage({ review: review.id, user: review.user.id, text: textArea });
+
+    console.log(review);
+    handleIsOpen(false);
+    setTextArea('');
   };
 
   const handleEmojiToggle = (e: MouseEvent<HTMLDivElement>) => {
