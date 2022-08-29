@@ -13,6 +13,17 @@ from notification.serializers import CommentSerializer, CreateCommentSerializer,
 
 class Consumer(AsyncWebsocketConsumer):
 
+    def notifications(self, page: int, user_id: int):
+        data = Notification.objects.fetch_notifications(page, user_id)
+
+        objects = NotificationSerializer(data['notifications'], many=True)
+
+        return {
+            'page': data['page'],
+            'has_next': data['has_next'],
+            'notifications': objects.data,
+        }
+
     def save_comment(self, data: dict[str, Union[str, int]]):
         serializer = CreateCommentSerializer(data=data)
         serializer.is_valid(raise_exception=True)
@@ -52,17 +63,23 @@ class Consumer(AsyncWebsocketConsumer):
         comment = await database_sync_to_async(self.save_comment)(text_data_json)
         notification = await database_sync_to_async(self.save_notification)(comment)
 
+        notifications = await database_sync_to_async(self.notifications)(0, str(text_data_json['user']))
+        # fetch notifications
+        # LEFT OFF HERE
+        print(notifications)
+
         comment.readable_date = comment.created_at.strftime('%m/%d/%Y')
         comment_serializer = CommentSerializer(comment)
 
         sender_group_name = 'chat_' + self.room_name
         receiver_group_name = 'chat_' + str(text_data_json['user'])
 
+        notification['comment_id'] = comment_serializer.data['id']
         await self.channel_layer.group_send(
             receiver_group_name,
             {
                 'type': 'notification',
-                'message': notification,
+                'message': notifications,
             }
         )
 
@@ -74,21 +91,15 @@ class Consumer(AsyncWebsocketConsumer):
             }
         )
 
-    # Receive message from room group
-
     async def comment(self, event):
         message = event['message']
-        # Send message to WebSocket
         await self.send(text_data=json.dumps({
             'comment': message
         }))
 
-    # Receive message from room group
-
     async def notification(self, event):
         message = event['message']
 
-        # Send message to WebSocket
         await self.send(text_data=json.dumps({
             'notification': message
         }))

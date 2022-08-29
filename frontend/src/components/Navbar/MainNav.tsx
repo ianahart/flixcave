@@ -43,10 +43,15 @@ export default function MainNav() {
       console.log('Message: ', event);
       const data = JSON.parse(event.data);
       if (Object.keys(data).includes('notification')) {
-        setNotifications((prevState) => [...prevState, data.notification]);
+        setNotifications([]);
+        setNotifications((prevState) => [
+          ...prevState,
+          ...data.notification.notifications,
+        ]);
+        setPage(data.notification.page);
+        setHasNext(data.notification.has_next);
         setNotificationsCount((prevState) => prevState + 1);
       }
-      // notificationsCount++
     },
   });
 
