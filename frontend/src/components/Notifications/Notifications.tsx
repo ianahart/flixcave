@@ -46,7 +46,13 @@ const Notifications = ({
   });
 
   const handleMoreNotifications = () => {
-    fetchNotifications(`/notifications/?page=${page}`);
+    let endpoint: string = '';
+    if (notifications.length === 0) {
+      endpoint = `/notifications/?page=0`;
+    } else {
+      endpoint = `/notifications/?page=${page}`;
+    }
+    fetchNotifications(endpoint);
   };
   const deleteNotification = async (id: number) => {
     try {
@@ -79,6 +85,7 @@ const Notifications = ({
               <p className={notificationsStyles.readable_date}>
                 {notification.readable_date}
               </p>
+              <p>{notification.id}</p>
             </div>
           </div>
         );

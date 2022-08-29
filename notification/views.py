@@ -17,7 +17,7 @@ class NotificationsDetailAPIView(APIView):
             notification = Notification.objects.get(pk=pk)
             self.check_object_permissions(request, notification.user)
             notification.delete()
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
+            return Response({'message': 'success'}, status=status.HTTP_200_OK)
 
         except ParseError:
             return Response({
@@ -61,7 +61,7 @@ class CommentDetailsAPIView(APIView):
             comment = Comment.objects.get(pk=pk)
             self.check_object_permissions(request, comment.user)
             comment.delete()
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
+            return Response({'message': 'success'}, status=status.HTTP_200_OK)
 
         except ParseError:
             return Response({

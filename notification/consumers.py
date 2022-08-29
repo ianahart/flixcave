@@ -66,7 +66,6 @@ class Consumer(AsyncWebsocketConsumer):
         notifications = await database_sync_to_async(self.notifications)(0, str(text_data_json['user']))
         # fetch notifications
         # LEFT OFF HERE
-        print(notifications)
 
         comment.readable_date = comment.created_at.strftime('%m/%d/%Y')
         comment_serializer = CommentSerializer(comment)
