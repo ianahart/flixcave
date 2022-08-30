@@ -106,6 +106,8 @@ export default function MainNav() {
             <>
               <Notifications
                 page={page}
+                top="20px"
+                left="-250px"
                 hasNext={hasNext}
                 resetState={resetState}
                 notifications={notifications}

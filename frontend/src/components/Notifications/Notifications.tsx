@@ -13,6 +13,8 @@ interface INotificationProps {
   page: number;
   hasNext: boolean;
   resetState: () => void;
+  top: string;
+  left: string;
 }
 
 const Notifications = ({
@@ -20,6 +22,8 @@ const Notifications = ({
   notifications,
   page,
   hasNext,
+  top,
+  left,
   fetchNotifications,
   resetState,
   filterNotifications,
@@ -67,6 +71,7 @@ const Notifications = ({
   return (
     <div
       ref={menuRef}
+      style={{ top, left }}
       className={`${notificationsStyles.container} ${notificationsStyles.overflowScroll}`}
     >
       <h3>Notifications</h3>
@@ -85,7 +90,6 @@ const Notifications = ({
               <p className={notificationsStyles.readable_date}>
                 {notification.readable_date}
               </p>
-              <p>{notification.id}</p>
             </div>
           </div>
         );
