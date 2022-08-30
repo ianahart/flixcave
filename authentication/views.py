@@ -1,6 +1,6 @@
 from typing import Any, Dict
 from django.core.exceptions import BadRequest
-from rest_framework.exceptions import AuthenticationFailed, NotFound, ParseError
+from rest_framework.exceptions import AuthenticationFailed, NotAuthenticated, NotFound, ParseError
 from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
@@ -24,7 +24,6 @@ class LogoutAPIView(APIView):
             serializer.is_valid(raise_exception=True)
 
             CustomUser.objects.logout_user(serializer.validated_data)
-
 
             return Response({
                 'message': 'success',
@@ -122,9 +121,9 @@ class TokenObtainPairView(APIView):
                         raise NotFound(detail=result['msg'],
                                        code=result['status_code'])
                     case '401':
-                        raise AuthenticationFailed(detail=result['msg'],
-                                                   code=result['status_code']
-                                                   )
+                        raise NotAuthenticated(detail=result['msg'],
+                                               code=result['status_code']
+                                               )
                     case _:
                         raise ParseError
 
@@ -134,6 +133,6 @@ class TokenObtainPairView(APIView):
                 'tokens': result['tokens'],
                 'user': user_serializer.data,
             }, status=status.HTTP_200_OK)
-        except (ParseError, NotFound, AuthenticationFailed, ) as e:
+        except (ParseError, NotFound, NotAuthenticated, ) as e:
             return Response({
                 'errors': str(e)}, status=e.status_code)

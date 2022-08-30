@@ -63,6 +63,12 @@ export default function Login({ connectToWS }: ILoginProps) {
         email: form.email.value,
         password: form.password.value,
       });
+
+      if (response === undefined) {
+        setError('Invalid credentials or you have not verified your email.');
+        return;
+      }
+
       dispatch(saveUser(response.data.user));
       dispatch(saveTokens(response.data.tokens));
       connectToWS();
