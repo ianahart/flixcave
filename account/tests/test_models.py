@@ -1,5 +1,6 @@
 from django.test import TestCase
 from ..models import CustomUser
+from model_bakery import baker
 
 
 class UserTestCase(TestCase):
@@ -20,3 +21,6 @@ class UserTestCase(TestCase):
         self.assertIsInstance(self.user.password, str)
         self.assertIsInstance(self.user.is_active, bool)
         self.assertIsInstance(self.user.logged_in, bool)
+
+    def test_its_string_representation_is_its_email(self):
+        self.assertEquals(str(self.user), self.user.email)

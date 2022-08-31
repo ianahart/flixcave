@@ -1,6 +1,8 @@
 import jwt
 import logging
 from typing import Union
+
+from rest_framework.exceptions import ParseError
 from core import settings
 from django.core.mail import EmailMessage
 from rest_framework_simplejwt.exceptions import TokenBackendError, TokenError
@@ -58,6 +60,7 @@ class CustomUserManager(BaseUserManager):
             ).decode(data['token'], verify=False)
         except TokenBackendError:
             logger.error('Invalid or malformed token.')
+            raise ParseError
         if decoded_token is not None:
             user = CustomUser.objects.get(pk=decoded_token['user_id'])
             user.is_active = True

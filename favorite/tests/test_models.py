@@ -18,7 +18,6 @@ class FavoriteTestCase(TestCase):
         self.favorite = Favorite.objects.get(pk=1)
 
     def test_it_has_information_fields(self):
-        print(self.favorite)
         self.assertIsInstance(self.favorite.type, str)
         self.assertIsInstance(self.favorite.title, str)
         self.assertIsInstance(self.favorite.backdrop_path, str)

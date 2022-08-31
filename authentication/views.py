@@ -44,6 +44,8 @@ class ResendVerifyAPIView(APIView):
             user = CustomUser.objects.all().filter(
                 email=request.data['email']).first()
 
+            if user is None:
+                raise BadRequest
             token = VerificationToken.objects.create(user)
 
             CustomUser.objects.send_verification_email(token=token, user=user)
