@@ -2,22 +2,21 @@ from django.test import TestCase
 from ..models import CustomUser
 
 
-class CreateUserTestCase(TestCase):
-    """Test module for registering a user"""
-
-    def test_create_user(self):
-        extra_fields = {
-            'first_name': 'john',
-            'last_name': 'smith',
-            'confirm_password': 'Password123',
-            'is_active': False,
-        }
-        CustomUser.objects.create(
+class UserTestCase(TestCase):
+    def setUp(self):
+        self.user = CustomUser.objects.create(
+            first_name='john',
+            last_name='smith',
             email='johnsmith@gmail.com',
-            password='Password123',
-            **extra_fields
+            is_active=False,
+            logged_in=False,
+            password='Password123'
         )
 
-        user = CustomUser.objects.all().filter(
-            email='johnsmith@gmail.com').first()
-        self.assertIsNotNone(user)
+    def test_it_has_information_fields(self):
+        self.assertIsInstance(self.user.first_name, str)
+        self.assertIsInstance(self.user.last_name, str)
+        self.assertIsInstance(self.user.email, str)
+        self.assertIsInstance(self.user.password, str)
+        self.assertIsInstance(self.user.is_active, bool)
+        self.assertIsInstance(self.user.logged_in, bool)
