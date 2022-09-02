@@ -8,7 +8,7 @@ class FavoriteManager(models.Manager):
 
     def create(self, data: dict[str, Union[str, int]]):
         favorite = self.model(
-            title=data['name'],
+            title=data['title'],
             backdrop_path=data['backdrop_path'],
             user_id=data['user_id'],
             type=data['type'],

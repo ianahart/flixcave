@@ -31,11 +31,12 @@ const Favorites = () => {
 
   const unFavorite = async (id: number) => {
     try {
-      await http.delete(`/favorites/${id}`);
       const filteredFavorites = [...favorites].filter(
         (favorite) => favorite.resource_id !== id
       );
       setFavorites(filteredFavorites);
+
+      await http.delete(`/favorites/${id}`);
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
         console.log(err.response);

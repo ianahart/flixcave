@@ -52,7 +52,7 @@ const Actions = ({
         type,
         user_id: user.id,
         backdrop_path: `https://image.tmdb.org/t/p/original${backdropPath}`,
-        name,
+        title: name,
       });
       updateDetails(true, 'favorited');
     } catch (err: unknown | AxiosError) {

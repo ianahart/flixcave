@@ -8,7 +8,7 @@ class FavoriteTestCase(TestCase):
         user = baker.make('account.CustomUser')
         data = {
             'type': 'movie',
-            'name': 'iron man',
+            'title': 'iron man',
             'backdrop_path': 'https://image.tmdb.org/t/p/original/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg',
             'resource_id': '150',
             'user_id': user.id,

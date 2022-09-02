@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.exceptions import NotFound, ParseError
 from account.permissions import AccountPermission
 from favorite.models import Favorite
-from favorite.serializers import FavoriteSerializer
+from favorite.serializers import CreateFavoriteSerializer, FavoriteSerializer
 
 
 class DetailsAPIView(APIView):
@@ -17,6 +17,8 @@ class DetailsAPIView(APIView):
 
             favorite = Favorite.objects.find_favorite(id, request.user.id)
 
+            if not hasattr(favorite, 'user'):
+                raise NotFound
             self.check_object_permissions(request, favorite.user)
 
             favorite.delete()
@@ -24,10 +26,9 @@ class DetailsAPIView(APIView):
             return Response({
             }, status=status.HTTP_204_NO_CONTENT)
 
-        except ParseError:
+        except NotFound:
             return Response({
-                'errors': {}
-            }, status=status.HTTP_400_BAD_REQUEST)
+                'errors': 'Could not find favorite'}, status=status.HTTP_404_NOT_FOUND)
 
 
 class ListCreateAPIView(APIView):
@@ -56,6 +57,9 @@ class ListCreateAPIView(APIView):
     def post(self, request):
         try:
 
+            serializer = CreateFavoriteSerializer(data=request.data)
+            if not serializer.is_valid():
+               raise ParseError
             Favorite.objects.create(request.data)
             return Response({
                 'message': 'success',
