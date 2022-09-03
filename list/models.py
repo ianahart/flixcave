@@ -30,7 +30,8 @@ class ListManager(models.Manager):
         exclude_lists = []
         name, title = data.values()
         results = List.objects.all().filter(name__icontains=title).filter(user_id=user_id)
-        list_item = ListItem.objects.filter(title=name).first()
+        list_item = ListItem.objects.filter(
+            title=name).filter(user_id=user_id).first()
         if list_item is not None:
             for result in results:
                 for item in result.list_list_items.all():

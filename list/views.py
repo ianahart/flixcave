@@ -1,3 +1,4 @@
+from django.db.models import ObjectDoesNotExist
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework import status
@@ -15,22 +16,26 @@ class DetailsAPIView(APIView):
     def delete(self, request, pk: int):
         try:
             list_item = ListItem.objects.get(pk=pk)
+            if list_item is None:
+                raise ObjectDoesNotExist
             self.check_object_permissions(request, list_item.user)
             list_item.delete()
 
             return Response({
 
-            }, status=status.HTTP_204_NO_CONTENT)
+            }, status=status.HTTP_200_OK)
 
-        except ParseError:
+        except ObjectDoesNotExist:
             return Response({
                 'errors': {},
-            }, status=status.HTTP_400_BAD_REQUEST)
+            }, status=status.HTTP_404_NOT_FOUND)
 
     def get(self, request, pk: int):
         try:
 
             list = List.objects.get(pk=pk)
+            if list is None:
+                raise ObjectDoesNotExist
 
             self.check_object_permissions(request, list.user)
 
@@ -45,7 +50,7 @@ class DetailsAPIView(APIView):
                 'list_items': serializer.data,
                 'page': results['page'],
             }, status=status.HTTP_200_OK)
-        except NotFound:
+        except ObjectDoesNotExist:
             return Response({
                 'errors': {}
             }, status=status.HTTP_404_NOT_FOUND)

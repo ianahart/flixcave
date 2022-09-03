@@ -31,12 +31,12 @@ const List = () => {
 
   const deleteItem = async (listItemId: number) => {
     try {
-      await http.delete(`/lists/${listItemId}/`);
-
       const filteredListItems = [...listItems].filter(
         (listItem) => listItem.id !== listItemId
       );
       setListItems(filteredListItems);
+
+      await http.delete(`/lists/${listItemId}/`);
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
       }

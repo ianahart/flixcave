@@ -34,10 +34,10 @@ const WatchList = () => {
 
   const removeFromWatchlist = async (id: number) => {
     try {
-      await http.delete(`/watchlists/${id}/`);
-
       const filteredWatchlist = [...watchlist].filter((item) => item.resource_id !== id);
       setWatchlist(filteredWatchlist);
+
+      await http.delete(`/watchlists/${id}/`);
     } catch (err: unknown | AxiosError) {
       if (err instanceof AxiosError && err.response) {
         return;
