@@ -8,6 +8,43 @@ from account.models import CustomUser
 from notification.models import Comment, Notification
 
 
+class GetAllNotificationsTestCase(TestCase):
+    def setUp(self):
+        self.user = CustomUser.objects.create(
+            'johnsmith@gmail.com', 'Password123')
+
+        text = [
+            'I am a notification 1',
+            'I am a notification 2',
+            'I am a notification 3',
+            'I am a notification 4',
+            'I am a notification 5',
+            'I am a notification 6',
+        ]
+        for i in range(6):
+            baker.make(Notification,
+                       user=self.user,
+                       text=text[i]
+                       )
+
+    def test_it_gets_all_notifications_for_a_user_with_pagination(self):
+        tokens = RefreshToken.for_user(self.user)
+        access_token = str(tokens.access_token)
+
+        client = APIClient()
+
+        client.credentials(HTTP_AUTHORIZATION='Bearer ' + access_token)
+        page = 0
+        counter = 0
+        while counter < 2:
+            response = client.get('/api/v1/notifications/?page=' + str(page))
+            self.assertEquals(
+                response.data['notifications_count'], Notification.objects.all().count())
+            self.assertEquals(len(response.data['notifications']), 3)
+            counter += 1
+            page += 1
+
+
 class DeleteNotificationTestCase(TestCase):
     def setUp(self):
 

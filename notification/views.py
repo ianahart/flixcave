@@ -49,6 +49,8 @@ class ListNotificationsAPIView(APIView):
 
                 }, status=status.HTTP_200_OK)
 
+            else:
+                raise NotFound
         except NotFound:
             return Response({
                 'errors': {}
