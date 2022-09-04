@@ -1,3 +1,4 @@
+# pyright: reportGeneralTypeIssues=false
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework import status
@@ -15,14 +16,16 @@ class NotificationsDetailAPIView(APIView):
     def delete(self, request, pk=None):
         try:
             notification = Notification.objects.get(pk=pk)
+            if notification is None:
+                raise NotFound
             self.check_object_permissions(request, notification.user)
             notification.delete()
             return Response({'message': 'success'}, status=status.HTTP_200_OK)
 
-        except ParseError:
+        except Notification.DoesNotExist:
             return Response({
                 'errors': {}
-            }, status=status.HTTP_400_BAD_REQUEST)
+            }, status=status.HTTP_404_NOT_FOUND)
 
 
 class ListNotificationsAPIView(APIView):
