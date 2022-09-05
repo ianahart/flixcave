@@ -6,6 +6,76 @@ from model_bakery import baker
 from rest_framework_simplejwt.tokens import RefreshToken
 from account.models import CustomUser
 from notification.models import Comment, Notification
+from review.models import Review
+
+
+class GetAllCommentsTestCase(TestCase):
+    def setUp(self):
+        self.user = CustomUser.objects.create(
+            'johnsmith@gmail.com', 'Password123')
+        review = Recipe(Review,
+                        user=self.user,
+                        body='I am a review body'
+                        )
+        self.comments = Recipe(
+            Comment,
+            user=self.user,
+            text="I am comment text",
+            review=foreign_key(review)
+        ).make(_quantity=3)
+
+    def test_it_gets_all_comments_for_a_review(self):
+        tokens = RefreshToken.for_user(self.user)
+        access_token = str(tokens.access_token)
+
+        client = APIClient()
+
+        client.credentials(HTTP_AUTHORIZATION='Bearer ' + access_token)
+        response = client.get(
+            '/api/v1/comments/?page=0&review=' + str(self.comments[0].review.id))
+
+        assert response.status_code == 200
+        self.assertEquals(len(response.data['comments']), 3)
+
+
+class DeleteCommentTestCase(TestCase):
+
+    def setUp(self):
+        self.user = CustomUser.objects.create(
+            'johnsmith@gmail.com', 'Password123')
+        review = Recipe(Review,
+                        user=self.user,
+                        body='I am a review body'
+                        )
+        self.comment = Recipe(
+            Comment,
+            user=self.user,
+            text="I am comment text",
+            review=foreign_key(review)
+        ).make()
+
+    def test_it_deletes_a_comment(self):
+        tokens = RefreshToken.for_user(self.user)
+        access_token = str(tokens.access_token)
+        client = APIClient()
+
+        client.credentials(HTTP_AUTHORIZATION='Bearer ' + access_token)
+        response = client.delete(
+            '/api/v1/comments/' + str(self.comment.id) + '/')
+        assert response.status_code == 200
+        self.assertEquals(Comment.objects.all().count(), 0)
+
+    def test_it_deletes_a_comment_error(self):
+        tokens = RefreshToken.for_user(self.user)
+        access_token = str(tokens.access_token)
+        client = APIClient()
+
+        client.credentials(HTTP_AUTHORIZATION='Bearer ' + access_token)
+        response = client.delete(
+            '/api/v1/comments/' + '1337' + '/')
+
+        assert response.status_code == 404
+        self.assertRaises(Comment.DoesNotExist)
 
 
 class GetAllNotificationsTestCase(TestCase):

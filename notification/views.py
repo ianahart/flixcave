@@ -68,10 +68,10 @@ class CommentDetailsAPIView(APIView):
             comment.delete()
             return Response({'message': 'success'}, status=status.HTTP_200_OK)
 
-        except ParseError:
+        except Comment.DoesNotExist:
             return Response({
                 'errors': {}
-            }, status=status.HTTP_400_BAD_REQUEST)
+            }, status=status.HTTP_404_NOT_FOUND)
 
 
 class ListCommentsAPIView(APIView):
